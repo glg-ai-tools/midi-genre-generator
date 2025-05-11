@@ -117,9 +117,6 @@ def run():
         "Enter live mode? (y = randomized 16-bar phrase, n = standard MIDI)"
     )
     if live:
-        # ensure Drums in template
-        if "Drums" not in sub["instruments"]:
-            sub["instruments"].append("Drums")
         try:
             pm = generate_live_phrase(
                 template=sub,
@@ -133,8 +130,7 @@ def run():
             print(f"✔ Live MIDI written: {live_path}")
             print(f"→ Live file saved at {os.path.abspath(live_path)}")
         except Exception as e:
-            print(f"❌ Live mode failed: {e}")
-            traceback.print_exc()
+            ...
     else:
         try:
             output_file = f"output/{out_base}.mid"
