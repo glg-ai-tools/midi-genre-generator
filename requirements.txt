@@ -1,6 +1,7 @@
 # Core MIDI & audio libraries
 pretty_midi         # high-level MIDI creation
 mido                # low-level MIDI I/O (optional backend)
+python-rtmidi       # additional backend for MIDI I/O
 
 # YouTube → audio
 pytube              # download YouTube streams

@@ -1,0 +1,86 @@
+2025-05-10 21:15:11,683 - INFO - Starting MIDI Genre Generator
+2025-05-10 21:15:11,684 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 21:15:11,684 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 21:15:20,938 - INFO - Style selected: 60s–70s
+2025-05-10 21:15:25,586 - INFO - Substyle selected: Psychedelic Rock
+2025-05-10 21:15:29,500 - INFO - BPM selected: 89
+2025-05-10 21:15:29,500 - INFO - Prompting for instruments...
+2025-05-10 21:15:32,931 - INFO - Added instrument: Drums
+2025-05-10 21:15:34,025 - INFO - Added instrument: Bass
+2025-05-10 21:15:35,151 - INFO - Added instrument: Guitar
+2025-05-10 21:15:37,541 - INFO - Added instrument: Keys
+2025-05-10 21:15:38,749 - INFO - Added instrument: Vocals
+2025-05-10 21:15:38,750 - INFO - Selected instruments: Drums, Bass, Guitar, Keys, Vocals
+2025-05-10 21:15:41,745 - INFO - Key selected: C#
+2025-05-10 21:15:46,847 - INFO - Mode selected: Phrygian
+2025-05-10 21:15:51,057 - INFO - Full key selected: C#4
+2025-05-10 21:15:55,407 - WARNING - Instrument Bass not found in spectrotone config, using default value
+2025-05-10 21:15:55,408 - WARNING - Instrument Guitar not found in spectrotone config, using default value
+2025-05-10 21:15:55,408 - WARNING - Instrument Keys not found in spectrotone config, using default value
+2025-05-10 21:15:55,408 - WARNING - Instrument Vocals not found in spectrotone config, using default value
+2025-05-10 21:15:55,408 - INFO - Channel assignment map: {'Bass': 0, 'Guitar': 1, 'Keys': 2, 'Vocals': 3, 'Drums': 9}
+2025-05-10 21:15:55,409 - INFO - Key root MIDI note: 61
+2025-05-10 21:16:19,257 - INFO - Entering live MIDI mode
+2025-05-10 21:16:19,257 - INFO - Generating live grid...
+2025-05-10 21:16:19,258 - ERROR - Error in live mode: 'Horns'
+2025-05-10 21:20:50,850 - INFO - Starting MIDI Genre Generator
+2025-05-10 21:20:50,850 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 21:20:50,852 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 21:20:55,383 - INFO - Style selected: Reggae
+2025-05-10 21:20:56,814 - INFO - Substyle selected: Roots Reggae
+2025-05-10 21:20:59,344 - INFO - BPM selected: 67
+2025-05-10 21:20:59,344 - INFO - Prompting for instruments...
+2025-05-10 21:21:02,242 - INFO - Added instrument: Drums
+2025-05-10 21:21:04,048 - INFO - Added instrument: Bass
+2025-05-10 21:21:05,402 - INFO - Added instrument: Guitar
+2025-05-10 21:21:06,448 - INFO - Added instrument: Keys
+2025-05-10 21:21:07,600 - INFO - Added instrument: Horns
+2025-05-10 21:21:07,600 - INFO - Selected instruments: Drums, Bass, Guitar, Keys, Horns
+2025-05-10 21:21:09,794 - INFO - Key selected: D
+2025-05-10 21:21:11,894 - INFO - Mode selected: Dorian
+2025-05-10 21:21:16,178 - INFO - Full key selected: D3
+2025-05-10 21:21:36,552 - INFO - Instrument Bass spectrotone low frequency: 41 Hz
+2025-05-10 21:21:36,552 - INFO - Instrument Guitar spectrotone low frequency: 82 Hz
+2025-05-10 21:21:36,553 - INFO - Instrument Keys spectrotone low frequency: 27 Hz
+2025-05-10 21:21:36,553 - INFO - Instrument Horns spectrotone low frequency: 165 Hz
+2025-05-10 21:21:36,553 - INFO - Melodic instruments sorted by frequency: ['Keys', 'Bass', 'Guitar', 'Horns']
+2025-05-10 21:21:36,553 - INFO - Assigned channel 0 to Keys
+2025-05-10 21:21:36,553 - INFO - Assigned channel 1 to Bass
+2025-05-10 21:21:36,553 - INFO - Assigned channel 2 to Guitar
+2025-05-10 21:21:36,553 - INFO - Assigned channel 3 to Horns
+2025-05-10 21:21:36,554 - INFO - Assigned standard channel 9 to Drums
+2025-05-10 21:21:36,554 - INFO - Final channel assignment map: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Horns': 3, 'Drums': 9}
+2025-05-10 21:21:36,554 - INFO - Key root MIDI note: 50
+2025-05-10 21:21:46,618 - INFO - Entering live MIDI mode
+2025-05-10 21:21:46,618 - INFO - Generating live grid...
+2025-05-10 21:21:46,618 - INFO - Generating live grid: 16 measures, 16 divisions
+2025-05-10 21:21:46,619 - INFO - Available instruments in template: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns']
+2025-05-10 21:21:46,619 - INFO - Instrument precedence: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns', 'Horn Section', 'Vocals', 'Synth', 'Pads', 'FX']
+2025-05-10 21:21:46,619 - INFO - Initialized grid for Drums
+2025-05-10 21:21:46,619 - INFO - Initialized grid for Bass
+2025-05-10 21:21:46,619 - INFO - Initialized grid for Guitar
+2025-05-10 21:21:46,620 - INFO - Initialized grid for Keys
+2025-05-10 21:21:46,620 - INFO - Initialized grid for Horns
+2025-05-10 21:21:46,620 - INFO - Processing Drums
+2025-05-10 21:21:46,620 - INFO - Drums configuration: zone=[0,16], density=0.8, pattern=euclidean
+2025-05-10 21:21:46,620 - INFO - Processing Bass
+2025-05-10 21:21:46,621 - INFO - Bass configuration: zone=[4,12], density=0.5, pattern=probability
+2025-05-10 21:21:46,621 - INFO - Processing Guitar
+2025-05-10 21:21:46,621 - INFO - Guitar configuration: zone=[8,16], density=0.3, pattern=euclidean
+2025-05-10 21:21:46,621 - INFO - Processing Keys
+2025-05-10 21:21:46,621 - INFO - Keys configuration: zone=[0,8], density=0.4, pattern=probability
+2025-05-10 21:21:46,622 - INFO - Processing Horns
+2025-05-10 21:21:46,622 - INFO - Horns configuration: zone=[12,16], density=0.2, pattern=euclidean
+2025-05-10 21:21:46,622 - INFO - Skipping Horn Section - not in template
+2025-05-10 21:21:46,622 - INFO - Skipping Vocals - not in template
+2025-05-10 21:21:46,622 - INFO - Skipping Synth - not in template
+2025-05-10 21:21:46,622 - INFO - Skipping Pads - not in template
+2025-05-10 21:21:46,622 - INFO - Skipping FX - not in template
+2025-05-10 21:21:46,623 - INFO - Drums hit density: 192/256 (75.0%)
+2025-05-10 21:21:46,623 - INFO - Bass hit density: 16/256 (6.2%)
+2025-05-10 21:21:46,623 - INFO - Guitar hit density: 0/256 (0.0%)
+2025-05-10 21:21:46,623 - INFO - Keys hit density: 11/256 (4.3%)
+2025-05-10 21:21:46,623 - INFO - Horns hit density: 0/256 (0.0%)
+2025-05-10 21:21:46,624 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 16, 'Guitar': 0, 'Keys': 11, 'Horns': 0}
+2025-05-10 21:21:46,624 - INFO - Starting live MIDI playback...
+2025-05-10 21:21:46,645 - ERROR - Error in live mode: No module named 'rtmidi'
