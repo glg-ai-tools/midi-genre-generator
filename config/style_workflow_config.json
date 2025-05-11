@@ -1,4 +1,92 @@
 {
+    "master_instrument_definitions": {
+        "Drums": {
+            "description": "Standard drum kit.",
+            "typical_role": "rhythmic_core",
+            "fixed_midi_channel": 9,
+            "spectrotone_ref": null,
+            "humanization_profile": "tight_drums"
+        },
+        "Bass": {
+            "description": "Electric or Acoustic Bass.",
+            "typical_role": "rhythmic_harmonic_foundation",
+            "default_midi_channel_band_id": "bass_frequencies",
+            "spectrotone_ref": "Bass",
+            "typical_articulations": ["legato", "staccato", "picked", "fingerstyle"],
+            "humanization_profile": "bass_pocket"
+        },
+        "Guitar": {
+            "description": "Electric or Acoustic Guitar.",
+            "typical_role": "melodic_harmonic_rhythmic",
+            "default_midi_channel_band_id": "mid_frequencies",
+            "spectrotone_ref": "Guitar",
+            "typical_articulations": ["picked", "strummed", "muted", "lead_sustain"],
+            "humanization_profile": "guitar_feel"
+        },
+        "Keys": {
+            "description": "Piano, Electric Piano, Organ, etc.",
+            "typical_role": "harmonic_melodic_pad",
+            "default_midi_channel_band_id": "broad_mid_frequencies",
+            "spectrotone_ref": "Keys",
+            "typical_articulations": ["sustained", "percussive", "arpeggiated"],
+            "humanization_profile": "keys_expressive"
+        },
+        "Horns": {
+            "description": "Brass or Woodwind instrument (e.g., Sax, Trumpet).",
+            "typical_role": "melodic_accent_harmonic",
+            "default_midi_channel_band_id": "high_mid_frequencies",
+            "spectrotone_ref": "Horns",
+            "humanization_profile": "horn_breath"
+        },
+        "Horn Section": {
+            "description": "Multiple horn instruments playing as a section.",
+            "typical_role": "harmonic_punch_pad",
+            "default_midi_channel_band_id": "high_mid_frequencies_section",
+            "spectrotone_ref": "Horn Section",
+            "humanization_profile": "horn_section_tight"
+        },
+        "Vocals": {
+            "description": "Lead or backing vocals.",
+            "typical_role": "melodic_lead_harmonic",
+            "default_midi_channel_band_id": "vocal_frequencies",
+            "spectrotone_ref": "Vocals",
+            "humanization_profile": "vocal_expressive"
+        },
+        "Synth": {
+            "description": "Synthesizer, various roles.",
+            "typical_role": "melodic_harmonic_texture_lead",
+            "default_midi_channel_band_id": "synth_frequencies",
+            "spectrotone_ref": "Synth",
+            "humanization_profile": "synth_varied"
+        },
+        "Pads": {
+            "description": "Sustained textural sounds.",
+            "typical_role": "harmonic_atmospheric",
+            "default_midi_channel_band_id": "pad_frequencies",
+            "spectrotone_ref": "Pads",
+            "humanization_profile": "pad_smooth"
+        },
+        "FX": {
+            "description": "Sound effects, risers, impacts.",
+            "typical_role": "accent_transition_earcandy",
+            "default_midi_channel_band_id": "fx_frequencies",
+            "spectrotone_ref": "FX",
+            "humanization_profile": "fx_precise"
+        }
+    },
+    "midi_channel_assignment_bands": {
+        "bass_frequencies": {"channel": 1, "description": "Lowest melodic/harmonic content", "hz_range_approx": [20, 250]},
+        "low_mid_frequencies": {"channel": 2, "description": "Lower-mid range instruments", "hz_range_approx": [251, 500]},
+        "mid_frequencies": {"channel": 3, "description": "Core mid-range", "hz_range_approx": [501, 2000]},
+        "broad_mid_frequencies": {"channel": 4, "description": "Instruments spanning wider mid-range like Keys", "hz_range_approx": [200, 3000]},
+        "high_mid_frequencies": {"channel": 5, "description": "Upper-mid range, presence", "hz_range_approx": [2001, 6000]},
+        "high_mid_frequencies_section": {"channel": 6, "description": "For sections, might share or be distinct", "hz_range_approx": [2001, 6000]},
+        "vocal_frequencies": {"channel": 7, "description": "Typical vocal range focus", "hz_range_approx": [80, 1200]},
+        "highest_melodic_frequencies": {"channel": 8, "description": "Highest pitched melodic content", "hz_range_approx": [6001, 20000]},
+        "synth_frequencies": {"channel": 10, "description": "General Synth (can overlap, distinct from Drums on 9)", "hz_range_approx": [50, 10000]},
+        "pad_frequencies": {"channel": 11, "description": "Pad sounds", "hz_range_approx": [50, 5000]},
+        "fx_frequencies": {"channel": 12, "description": "Sound effects", "hz_range_approx": [20, 20000]}
+    },
     "styles": [
         {
             "id": "reggae",
@@ -8,7 +96,53 @@
                     "id": "roots",
                     "name": "Roots Reggae",
                     "bpm_range": [60, 80],
-                    "instruments": ["Drums", "Bass", "Guitar", "Keys", "Horns"],
+                    "instrument_setup": [
+                        {
+                            "instrument_id": "Drums",
+                            "style_density_modifier": 1.0,
+                            "density_interpretation": "pattern_probability",
+                            "patterns": {
+                                "kick":       [1,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0],
+                                "snare":      [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0],
+                                "closed_hat": [0,1,0,1, 0,1,0,1, 0,1,0,1, 0,1,0,1],
+                                "open_hat":   [0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1]
+                            }
+                        },
+                        {
+                            "instrument_id": "Bass",
+                            "style_density_modifier": 0.9,
+                            "density_interpretation": "tiered_from_pattern",
+                            "core_pattern_notes": 2,
+                            "full_pattern_notes": 4,
+                            "patterns": {
+                                "style_pattern_full": [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0]
+                            }
+                        },
+                        {
+                            "instrument_id": "Guitar",
+                            "style_density_modifier": 0.7,
+                            "density_interpretation": "pattern_probability",
+                            "patterns": {
+                                "skank_chord": [0,0,1,0, 0,0,1,0, 0,0,1,0, 0,0,1,0]
+                            }
+                        },
+                        {
+                            "instrument_id": "Keys",
+                            "style_density_modifier": 0.6,
+                            "density_interpretation": "pattern_probability",
+                            "patterns": {
+                                "bubble_organ_chords": [0,0,1,0, 0,0,1,0, 0,0,1,0, 0,0,1,0]
+                            }
+                        },
+                        {
+                            "instrument_id": "Horns",
+                            "style_density_modifier": 0.5,
+                            "density_interpretation": "pattern_probability",
+                            "patterns": {
+                                "long_tone_accent": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                            }
+                        }
+                    ],
                     "chord_progression": ["I", "IV", "V", "I"],
                     "length_bars": 8,
                     "key_range": {"low": 2, "high": 4}

@@ -30,7 +30,7 @@ GM_DRUM_MAP = {
 }
 
 # Live mode functions
-def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
+def send_live_midi(grid, tempo, key_root, channel_map, sub, cfg): # sub is substyle_config
     """Send MIDI messages in real-time based on the grid"""
     try:
         import mido
@@ -40,15 +40,15 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
         print("❌ Error: Mido library required for live MIDI output.")
         return False
 
-    outport = None  # Initialize outport to None
+    outport = None
     try:
         available_ports = mido.get_output_names()
         logger.info(f"Available MIDI output ports: {available_ports}")
 
         if not available_ports:
-            logger.warning("No MIDI output ports available. Please connect a MIDI device or install a virtual MIDI port.")
+            logger.warning("No MIDI output ports available.")
             print("❌ Warning: No MIDI output ports found.")
-            print("ℹ️ Info: You can install a virtual MIDI port like 'loopMIDI' if you don't have a physical device.")
+            print("ℹ️ Info: You can install a virtual MIDI port like 'loopMIDI'.")
             return False
         else:
             print("\nAvailable MIDI Output Ports:")
@@ -70,34 +70,49 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
                 logger.info("User chose to cancel or attempt virtual port.")
                 print("ℹ️ Attempting to use a virtual port or fallback...")
                 try:
-                    outport = mido.open_output('MIDI Generator Virtual Port', virtual=True)
-                    logger.info("Created virtual MIDI output port: MIDI Generator Virtual Port")
-                    print("✅ Created virtual MIDI output port: MIDI Generator Virtual Port")
+                    # Try a common name or allow mido to create one if backend supports it
+                    outport = mido.open_output('MIDI Generator Virtual Output', virtual=True)
+                    logger.info(f"Created or using virtual MIDI output port: {outport.name}")
+                    print(f"✅ Using virtual MIDI output port: {outport.name}")
                 except Exception as e_virtual:
-                    logger.error(f"Failed to create virtual port: {e_virtual}")
-                    print(f"❌ Error: Could not create virtual MIDI port. {e_virtual}")
+                    logger.error(f"Failed to create or open virtual port: {e_virtual}")
+                    print(f"❌ Error: Could not create/open virtual MIDI port. {e_virtual}")
                     return False
             else:
                 port_name = available_ports[choice - 1]
                 logger.info(f"User selected MIDI output port: {port_name}")
-                print(f"✅ Using MIDI output port: {port_name}")
                 try:
                     outport = mido.open_output(port_name)
-                except Exception as e_open: # Catch specific port opening errors
+                    print(f"✅ Using MIDI output port: {port_name}")
+                except Exception as e_open:
                     logger.error(f"Failed to open selected port '{port_name}': {e_open}")
-                    print(f"❌ Error: Could not open port '{port_name}'. It might be in use or unavailable.")
-                    print(f"   Details: {e_open}")
+                    print(f"❌ Error: Could not open port '{port_name}'. Details: {e_open}")
                     return False
         
-        if outport is None: # Should not happen if logic is correct, but as a safeguard
+        if outport is None:
             logger.error("MIDI output port was not successfully opened or created.")
             return False
 
-        beat_time = 60.0 / tempo  # Time for one beat in seconds
-        sixteenth_time = beat_time / 4.0  # Time for one 16th note
+        beat_time = 60.0 / tempo
+        sixteenth_time = beat_time / 4.0
         
-        measures = len(next(iter(grid.values())))
-        divisions = len(next(iter(grid.values()))[0])
+        # Determine measures and divisions from the grid structure
+        # Assumes grid is not empty and all instruments have same structure
+        if not grid or not any(grid.values()):
+            logger.error("Grid is empty or invalid. Cannot proceed with MIDI playback.")
+            print("❌ Error: Cannot play MIDI from an empty or invalid grid.")
+            if outport and not outport.closed: outport.close()
+            return False
+            
+        first_instrument_grid = next(iter(grid.values()))
+        measures = len(first_instrument_grid)
+        divisions = len(first_instrument_grid[0]) if measures > 0 else 0
+
+        if measures == 0 or divisions == 0:
+            logger.error(f"Grid has zero measures or divisions. Measures: {measures}, Divisions: {divisions}")
+            print("❌ Error: Grid has no playable content.")
+            if outport and not outport.closed: outport.close()
+            return False
         
         logger.info(f"Grid configuration: {measures} measures, {divisions} divisions per measure")
         logger.info(f"Timing: Beat = {beat_time:.3f}s, 16th = {sixteenth_time:.3f}s")
@@ -105,45 +120,62 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
         print(f"ℹ️ Playing {measures} measures, tempo: {tempo} BPM on port '{outport.name}'")
         print("🎵 Starting MIDI playback...")
         
+        # Pre-fetch drum setup if "Drums" is a chosen instrument
+        drums_instrument_id = "Drums" 
+        drum_style_patterns = None
+        # Find the "Drums" instrument setup in the current substyle
+        for inst_setup_item in sub.get("instrument_setup", []):
+            if inst_setup_item.get("instrument_id") == drums_instrument_id:
+                drum_style_patterns = inst_setup_item.get("patterns", {})
+                if drum_style_patterns:
+                    logger.info(f"Found style-specific drum patterns for '{drums_instrument_id}': {list(drum_style_patterns.keys())}")
+                else: # This case means "Drums" is in instrument_setup but has no "patterns" dict
+                    logger.warning(f"'{drums_instrument_id}' is in instrument_setup but has no patterns defined in substyle '{sub.get('name')}'.")
+                break 
+        
         try:
-            # Play the grid
             for m in range(measures):
                 logger.info(f"Playing measure {m+1}/{measures} on port '{outport.name}'")
                 print(f"Measure {m+1}/{measures}", end="\r")
                 for t in range(divisions):
-                    messages_to_send = [] # Renamed to avoid conflict with mido.Message
+                    messages_to_send_on = [] 
                     
-                    # Send note on for each instrument with a hit at this position
-                    for inst, grid_data in grid.items():
-                        if grid_data[m][t]:
-                            channel = channel_map.get(inst, 0)
-                            # Determine the note to play
-                            current_note_to_play = key_root # Default for melodic instruments
+                    for inst_id, inst_grid_data in grid.items():
+                        if inst_id not in channel_map: # Instrument was in grid but not chosen or no channel assigned
+                            logger.warning(f"Skipping notes for '{inst_id}' - no channel mapping found.")
+                            continue
+
+                        if inst_grid_data[m][t]: # If the grid says this instrument should play NOW
+                            channel = channel_map[inst_id]
                             
-                            if inst == 'Drums':
-                                beat_num_in_bar = t + 1 # 1-indexed beat within the current measure (0-15 for 16 divisions)
-                                # Check against drum_pat which should have steps 1-16 for a bar
-                                for role, steps_in_pattern in drum_pat.items():
-                                    if beat_num_in_bar in steps_in_pattern:
-                                        current_note_to_play = GM_DRUM_MAP.get(role, 36)  # Default to kick if not found
-                                        logger.info(f"Drum hit: {role} (note {current_note_to_play}) at measure {m+1}, division {t+1}, channel {channel}")
-                                        messages_to_send.append(mido.Message('note_on', note=current_note_to_play, velocity=100, channel=channel))
-                                        break # Found a drum role for this step
-                            else: # Melodic instrument
-                                logger.info(f"{inst} hit (note {current_note_to_play}) at measure {m+1}, division {t+1}, channel {channel}")
-                                messages_to_send.append(mido.Message('note_on', note=current_note_to_play, velocity=100, channel=channel))
+                            if inst_id == drums_instrument_id and drum_style_patterns:
+                                # Handle Drums based on its style-specific sub-patterns
+                                for drum_part_name, pattern_array in drum_style_patterns.items():
+                                    if isinstance(pattern_array, list) and t < len(pattern_array) and pattern_array[t]: # Check hit in pattern
+                                        midi_note = GM_DRUM_MAP.get(drum_part_name)
+                                        if midi_note is not None:
+                                            logger.debug(f"DRUM: {drum_part_name} (note {midi_note}) at M{m+1},T{t+1} on Ch{channel}")
+                                            messages_to_send_on.append(mido.Message('note_on', note=midi_note, velocity=100, channel=channel))
+                                        else:
+                                            logger.warning(f"Drum part '{drum_part_name}' not in GM_DRUM_MAP. Skipping.")
+                            
+                            elif inst_id != drums_instrument_id: # Melodic instruments
+                                note_to_play = key_root 
+                                # Placeholder for future advanced melodic note selection:
+                                # current_chord_name = sub['chord_progression'][m % len(sub['chord_progression'])]
+                                # pitches_in_chord = chord_to_pitches(current_chord_name, key_root, mode)
+                                # if pitches_in_chord: note_to_play = random.choice(pitches_in_chord)
+                                # note_to_play = clamp_pitch(note_to_play, inst_id, master_instrument_defs, cfg)
+                                logger.debug(f"MELODIC: {inst_id} (note {note_to_play}) at M{m+1},T{t+1} on Ch{channel}")
+                                messages_to_send_on.append(mido.Message('note_on', note=note_to_play, velocity=100, channel=channel))
+
+                    for msg in messages_to_send_on:
+                        outport.send(msg)
                     
-                    # Send all note on messages
-                    for msg_to_send in messages_to_send:
-                        outport.send(msg_to_send)
-                    
-                    # Wait for the 16th note duration
                     time.sleep(sixteenth_time)
                     
-                    # Send note off for all active notes
-                    for msg_to_send in messages_to_send:
-                        if msg_to_send.type == 'note_on':
-                            outport.send(mido.Message('note_off', note=msg_to_send.note, velocity=0, channel=msg_to_send.channel))
+                    for msg in messages_to_send_on:
+                        outport.send(mido.Message('note_off', note=msg.note, velocity=0, channel=msg.channel))
                 
             logger.info("Playback completed successfully")
             print("\n✅ Playback completed!")
@@ -152,8 +184,8 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
             logger.info("Playback interrupted by user")
             print("\n⏹️ Playback stopped by user")
             if outport and not outport.closed:
-                for ch in range(16): # Send all notes off to all channels
-                    outport.send(mido.Message('control_change', control=123, value=0, channel=ch)) # All Notes Off
+                for ch_off in range(16): 
+                    outport.send(mido.Message('control_change', control=123, value=0, channel=ch_off))
                 logger.info("Sent All Notes Off command.")
                 
         finally:
@@ -167,7 +199,6 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
         logger.error(f"Error during MIDI setup or playback: {e}")
         traceback.print_exc()
         print(f"❌ Error: {e}")
-        # The tip about installing python-rtmidi might still be relevant if mido.get_output_names() fails
         if "rtmidi" in str(e).lower():
              print("💡 Tip: Ensure 'python-rtmidi' is installed: pip install python-rtmidi")
         return False
@@ -257,77 +288,105 @@ def run():
     
     logger.info(f"BPM selected: {bpm}")
     
-    # Collect instruments
-    chosen = []
+    # --- MODIFIED: Collect instruments based on instrument_setup ---
+    chosen_instruments_details = [] # To store the full detail of chosen instruments
+    chosen_instrument_ids = [] # To store just the IDs for logging and other uses
     logger.info("Prompting for instruments...")
-    for instr in sub["instruments"]:
-        if prompt_yesno(f"Include {instr}?"):
-            chosen.append(instr)
-            logger.info(f"Added instrument: {instr}")
     
-    logger.info(f"Selected instruments: {', '.join(chosen)}")
+    # Ensure 'instrument_setup' exists and is a list
+    instrument_options = sub.get("instrument_setup", [])
+    if not isinstance(instrument_options, list):
+        logger.error(f"Substyle '{sub['name']}' has malformed 'instrument_setup'. Expected a list.")
+        print(f"❌ Error: Configuration issue with substyle '{sub['name']}'. Contact developer.")
+        return run()
+
+    master_defs = cfg.get("master_instrument_definitions", {})
+
+    for instrument_config_in_style in instrument_options:
+        instrument_id = instrument_config_in_style.get("instrument_id")
+        if not instrument_id:
+            logger.warning(f"Skipping instrument in substyle '{sub['name']}' due to missing 'instrument_id'.")
+            continue
+
+        # Get the display name from master_instrument_definitions if possible, fallback to id
+        display_name = instrument_id
+        if instrument_id in master_defs and "description" in master_defs[instrument_id]:
+            pass
+
+        if prompt_yesno(f"Include {display_name}?"):
+            chosen_instruments_details.append(instrument_config_in_style) # Store the whole object
+            chosen_instrument_ids.append(instrument_id)
+            logger.info(f"Added instrument: {instrument_id}")
+    
+    if not chosen_instrument_ids:
+        logger.info("No instruments selected by the user.")
+        print("No instruments selected. Exiting.")
+        return run()
+    logger.info(f"Selected instruments: {', '.join(chosen_instrument_ids)}")
+    # --- END MODIFIED ---
     
     # Get key and mode
     key = prompt_list("Choose key:", cfg["keys_modes"]["keys"])
+    if key is None:
+        logger.info("User went back from key selection")
+        return run()
     logger.info(f"Key selected: {key}")
     
     mode = prompt_list("Choose mode:", cfg["keys_modes"]["modes"])
+    if mode is None:
+        logger.info("User went back from mode selection")
+        return run()
     logger.info(f"Mode selected: {mode}")
     
     key_range = sub.get("key_range", {"low": 3, "high": 5})
     octave = prompt_int(f"Choose octave for '{key}'", key_range["low"], key_range["high"], allow_back=False)
+    if octave is None: # Should not happen if allow_back is False, but good practice
+        logger.info("User went back from octave selection") # Or handle as error
+        return run()
     key_o = f"{key}{octave}"
     logger.info(f"Full key selected: {key_o}")
     
-    print(f"Style: {style['name']}, Substyle: {sub['name']}, BPM: {bpm}, Instruments: {', '.join(chosen)}, Key: {key_o}, Mode: {mode}")
+    print(f"Style: {style['name']}, Substyle: {sub['name']}, BPM: {bpm}, Instruments: {', '.join(chosen_instrument_ids)}, Key: {key_o}, Mode: {mode}")
     if not prompt_yesno("Proceed with generation? (y/N)"): 
         logger.info("User cancelled at confirmation prompt")
         return run()
 
-    # Channel assignment: based on low freq
-    instr_info = cfg.get('spectrotone', {}).get('instruments', {})
-
-    # List to keep track of melodic instruments with their frequency ranges
-    melodic = []
-    for i in chosen:
-        if i != 'Drums':
-            if i not in instr_info:
-                logger.warning(f"Instrument {i} not found in spectrotone config, using default value")
-                melodic.append((i, 100))  # Default value if not found
-            else:
-                # Use the first (lowest) frequency in the range
-                freq = instr_info[i].get('range_hz', [100])[0]
-                logger.info(f"Instrument {i} spectrotone low frequency: {freq} Hz")
-                melodic.append((i, freq))
-
-    # Sort by the low frequency (bass instruments first)
-    melodic = [item[0] for item in sorted(melodic, key=lambda x: x[1])]
-    logger.info(f"Melodic instruments sorted by frequency: {melodic}")
-
-    # Assign channels (0-8 for melodic instruments, 9 for drums)
+    # --- MODIFIED: Channel assignment based on new JSON structure ---
     channel_map = {}
-    for idx, inst in enumerate(melodic[:8], start=0):  # Channels 0-7 for first 8 instruments
-        channel_map[inst] = idx
-        logger.info(f"Assigned channel {idx} to {inst}")
+    master_instrument_defs = cfg.get("master_instrument_definitions", {})
+    channel_bands = cfg.get("midi_channel_assignment_bands", {})
+    
+    for instrument_id in chosen_instrument_ids:
+        if instrument_id not in master_instrument_defs:
+            logger.warning(f"Master definition for instrument '{instrument_id}' not found. Assigning default channel 0.")
+            channel_map[instrument_id] = 0 # Fallback channel
+            continue
 
-    for inst in melodic[8:]:  # Channel 8 (zero-based) for any additional instruments
-        channel_map[inst] = 8
-        logger.info(f"Assigned shared channel 8 to {inst} (overflow)")
+        instr_master_def = master_instrument_defs[instrument_id]
 
-    if 'Drums' in chosen:
-        channel_map['Drums'] = 9  # Standard GM drum channel (10 in 1-based counting)
-        logger.info("Assigned standard channel 9 to Drums")
-
+        if "fixed_midi_channel" in instr_master_def:
+            channel_map[instrument_id] = instr_master_def["fixed_midi_channel"]
+            logger.info(f"Assigned fixed MIDI channel {instr_master_def['fixed_midi_channel']} to {instrument_id}")
+        elif "default_midi_channel_band_id" in instr_master_def:
+            band_id = instr_master_def["default_midi_channel_band_id"]
+            if band_id in channel_bands and "channel" in channel_bands[band_id]:
+                channel_map[instrument_id] = channel_bands[band_id]["channel"]
+                logger.info(f"Assigned channel {channel_bands[band_id]['channel']} to {instrument_id} (band: {band_id})")
+            else:
+                logger.warning(f"MIDI channel band '{band_id}' for instrument '{instrument_id}' not found or malformed. Assigning default channel 0.")
+                channel_map[instrument_id] = 0 # Fallback channel
+        else:
+            logger.warning(f"No channel assignment rule found for instrument '{instrument_id}'. Assigning default channel 0.")
+            channel_map[instrument_id] = 0 # Fallback channel
+            
     logger.info(f"Final channel assignment map: {channel_map}")
+    # --- END MODIFIED ---
     
     # MIDI Generation
     key_root = note_name_to_number(key_o)
     logger.info(f"Key root MIDI note: {key_root}")
     
-    # Live MIDI mode
     live_rules = cfg.get("live_rules", {})
-    global drum_pat  # Make drum_pat available to send_live_midi function
-    drum_pat = live_rules.get("drum_pattern", {})
     
     if prompt_yesno("Enter live mode? (sends MIDI to outputs in real-time)"):
         logger.info("Entering live MIDI mode")
@@ -338,38 +397,49 @@ def run():
                 live_rules=live_rules,
                 key_root=key_root,
                 mode=mode,
-                tempo=bpm
+                tempo=bpm,
+                chosen_instrument_ids=chosen_instrument_ids,
+                master_instrument_defs=master_instrument_defs,
+                cfg=cfg
             )
             
-            # Log some stats about the grid
             instrument_stats = {}
-            for inst, measures in grid.items():
-                total_steps = 0
-                for measure in measures:
-                    total_steps += sum(1 for step in measure if step)
-                instrument_stats[inst] = total_steps
-                
-            logger.info(f"Grid generation complete. Hit counts by instrument: {instrument_stats}")
-            
-            # Format filename for saving
+            if grid:
+                for inst, measures in grid.items():
+                    total_steps = 0
+                    if measures:
+                        for measure in measures:
+                            total_steps += sum(1 for step in measure if step)
+                    instrument_stats[inst] = total_steps
+                logger.info(f"Grid generation complete. Hit counts by instrument: {instrument_stats}")
+            else:
+                logger.error("Grid generation failed or returned empty.")
+                print("❌ Error: Live grid generation failed.")
+                return run()
+
             out_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "output")
             os.makedirs(out_dir, exist_ok=True)
-            out_file = f"{style['id']}_{sub['id']}_{bpm}_{key}_{mode}_live.mid"
-            out_path = os.path.join(out_dir, out_file)
+            safe_key_o = key_o.replace("#", "s")
+            out_file_base = f"{style['id']}_{sub['id']}_{bpm}_{safe_key_o}_{mode}"
             
-            # Attempt MIDI playback
             logger.info("Starting live MIDI playback...")
-            # Pass drum_pat to the function
-            success = send_live_midi(grid, bpm, key_root, channel_map, live_rules.get("drum_pattern", {}))
+            success = send_live_midi(grid, bpm, key_root, channel_map, sub, cfg)
             
             if not success:
-                print(f"ℹ️ Live MIDI playback failed, but we can still generate a MIDI file.")
-                if prompt_yesno("Generate MIDI file instead?"):
-                    # Generate MIDI file since live playback failed
-                    logger.info("Generating MIDI file as fallback...")
-                    # Code to generate MIDI file would go here
-                    # ...
-                    print(f"✅ MIDI file generated: {out_path}")
+                print(f"ℹ️ Live MIDI playback failed or was cancelled.")
+                if prompt_yesno(f"Generate MIDI file ({out_file_base}_live.mid) instead?"):
+                    logger.info("Generating MIDI file as fallback or alternative...")
+                    generate_midi(
+                        filename=os.path.join(out_dir, f"{out_file_base}_live_generated.mid"),
+                        substyle_config=sub,
+                        chosen_instrument_ids=chosen_instrument_ids,
+                        channel_map=channel_map,
+                        key_root=key_root,
+                        mode=mode,
+                        bpm=bpm,
+                        cfg=cfg
+                    )
+                    print(f"✅ MIDI file generated: {os.path.join(out_dir, f'{out_file_base}_live_generated.mid')}")
             
         except Exception as e:
             logger.error(f"Error in live mode: {e}")
@@ -377,7 +447,23 @@ def run():
             print(f"❌ Error: {e}")
     else:
         logger.info("Generating static MIDI file")
-        # Your existing MIDI generation code here
+        out_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "output")
+        os.makedirs(out_dir, exist_ok=True)
+        safe_key_o = key_o.replace("#", "s")
+        out_file_base = f"{style['id']}_{sub['id']}_{bpm}_{safe_key_o}_{mode}"
+        out_path = os.path.join(out_dir, f"{out_file_base}_static.mid")
+
+        generate_midi(
+            filename=out_path,
+            substyle_config=sub,
+            chosen_instrument_ids=chosen_instrument_ids,
+            channel_map=channel_map,
+            key_root=key_root,
+            mode=mode,
+            bpm=bpm,
+            cfg=cfg
+        )
+        print(f"✅ MIDI file generated: {out_path}")
 
 if __name__ == "__main__":
     run()
