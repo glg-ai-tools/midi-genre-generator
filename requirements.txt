@@ -1,0 +1,14 @@
+# Core MIDI & audio libraries
+pretty_midi         # high-level MIDI creation
+mido                # low-level MIDI I/O (optional backend)
+
+# YouTube → audio
+pytube              # download YouTube streams
+pydub               # audio trimming/format conversion
+
+# MP3 tagging
+mutagen             # ID3 metadata support
+
+# CLI & interactivity
+ipywidgets          # for Jupyter-style sliders/buttons (if you ever use notebooks)
+rich               # pretty console output

@@ -1,0 +1,376 @@
+{
+    "styles": [
+        {
+            "id": "reggae",
+            "name": "Reggae",
+            "substyles": [
+                {
+                    "id": "ska",
+                    "name": "Ska",
+                    "bpm_range": [
+                        140,
+                        160
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Keys",
+                        "Horns"
+                    ],
+                    "key_range": {
+                        "low": 3,
+                        "high": 5
+                    }
+                },
+                {
+                    "id": "rocksteady",
+                    "name": "Rocksteady",
+                    "bpm_range": [
+                        120,
+                        140
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Keys",
+                        "Horns"
+                    ],
+                    "key_range": {
+                        "low": 3,
+                        "high": 5
+                    }
+                },
+                {
+                    "id": "roots_reggae",
+                    "name": "Roots Reggae",
+                    "bpm_range": [
+                        70,
+                        90
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Keys",
+                        "Horns"
+                    ],
+                    "key_range": {
+                        "low": 2,
+                        "high": 4
+                    }
+                },
+                {
+                    "id": "dub",
+                    "name": "Dub",
+                    "bpm_range": [
+                        70,
+                        100
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Keys",
+                        "FX"
+                    ]
+                },
+                {
+                    "id": "dancehall",
+                    "name": "Dancehall",
+                    "bpm_range": [
+                        85,
+                        110
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Keys",
+                        "Vocals",
+                        "FX"
+                    ]
+                },
+                {
+                    "id": "modern",
+                    "name": "Modern Reggae",
+                    "bpm_range": [
+                        90,
+                        105
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Keys",
+                        "Vocals",
+                        "Horns"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sixties_seventies",
+            "name": "60s\u201370s",
+            "substyles": [
+                {
+                    "id": "motown",
+                    "name": "Motown",
+                    "bpm_range": [
+                        100,
+                        130
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Piano",
+                        "Strings",
+                        "Vocals"
+                    ]
+                },
+                {
+                    "id": "psychedelic",
+                    "name": "Psychedelic Rock",
+                    "bpm_range": [
+                        110,
+                        140
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Organ",
+                        "Synths",
+                        "Vocals"
+                    ]
+                },
+                {
+                    "id": "funk",
+                    "name": "Funk",
+                    "bpm_range": [
+                        90,
+                        110
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Horn Section",
+                        "Keys",
+                        "Vocals"
+                    ]
+                },
+                {
+                    "id": "early_disco",
+                    "name": "Early Disco",
+                    "bpm_range": [
+                        110,
+                        125
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Guitar",
+                        "Keys",
+                        "Strings",
+                        "Vocals"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "house_rooms",
+            "name": "House Rooms",
+            "substyles": [
+                {
+                    "id": "deep_house",
+                    "name": "Deep House",
+                    "bpm_range": [
+                        115,
+                        125
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Synth",
+                        "Pads"
+                    ],
+                    "key_range": {
+                        "low": 3,
+                        "high": 6
+                    }
+                },
+                {
+                    "id": "tech_house",
+                    "name": "Tech House",
+                    "bpm_range": [
+                        120,
+                        130
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Synth",
+                        "Percussion"
+                    ],
+                    "key_range": {
+                        "low": 3,
+                        "high": 6
+                    }
+                },
+                {
+                    "id": "room1",
+                    "name": "Room 1",
+                    "bpm_range": [
+                        120,
+                        122
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room2",
+                    "name": "Room 2",
+                    "bpm_range": [
+                        122,
+                        124
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room3",
+                    "name": "Room 3",
+                    "bpm_range": [
+                        124,
+                        126
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room4",
+                    "name": "Room 4",
+                    "bpm_range": [
+                        126,
+                        128
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room5",
+                    "name": "Room 5",
+                    "bpm_range": [
+                        128,
+                        130
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room6",
+                    "name": "Room 6",
+                    "bpm_range": [
+                        130,
+                        132
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room7",
+                    "name": "Room 7",
+                    "bpm_range": [
+                        132,
+                        134
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room8",
+                    "name": "Room 8",
+                    "bpm_range": [
+                        134,
+                        136
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                },
+                {
+                    "id": "room9",
+                    "name": "Room 9",
+                    "bpm_range": [
+                        136,
+                        138
+                    ],
+                    "instruments": [
+                        "Drums",
+                        "Bass",
+                        "Pads",
+                        "Lead"
+                    ]
+                }
+            ]
+        }
+    ],
+    "keys_modes": {
+        "keys": [
+            "C",
+            "C#",
+            "D",
+            "D#",
+            "E",
+            "F",
+            "F#",
+            "G",
+            "G#",
+            "A",
+            "A#",
+            "B"
+        ],
+        "modes": [
+            "Ionian",
+            "Dorian",
+            "Phrygian",
+            "Lydian",
+            "Mixolydian",
+            "Aeolian",
+            "Locrian"
+        ]
+    }
+}
