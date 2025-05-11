@@ -277,3 +277,739 @@
 2025-05-10 21:55:47,925 - INFO - Playback interrupted by user
 2025-05-10 21:55:47,927 - INFO - Sent All Notes Off command.
 2025-05-10 21:55:47,928 - INFO - MIDI output port 'DESKTOP-GE5VPTU 1' closed.
+2025-05-10 22:02:55,868 - INFO - Starting MIDI Genre Generator
+2025-05-10 22:02:55,869 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 22:02:55,870 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 22:03:02,153 - INFO - Style selected: House Rooms
+2025-05-10 22:03:07,386 - INFO - Substyle selected: Deep House
+2025-05-10 22:03:11,490 - INFO - BPM selected: 121
+2025-05-10 22:03:11,491 - INFO - Prompting for instruments...
+2025-05-10 22:03:14,044 - INFO - Added instrument: Drums
+2025-05-10 22:03:15,210 - INFO - Added instrument: Bass
+2025-05-10 22:03:16,464 - INFO - Added instrument: Pads
+2025-05-10 22:03:17,537 - INFO - Added instrument: Keys
+2025-05-10 22:03:18,627 - INFO - Added instrument: Synth
+2025-05-10 22:03:18,627 - INFO - Selected instruments: Drums, Bass, Pads, Keys, Synth
+2025-05-10 22:03:21,406 - INFO - Key selected: D
+2025-05-10 22:03:23,381 - INFO - Mode selected: Lydian
+2025-05-10 22:03:25,170 - INFO - Full key selected: D4
+2025-05-10 22:03:28,092 - INFO - Instrument Bass spectrotone low frequency: 41 Hz
+2025-05-10 22:03:28,093 - INFO - Instrument Pads spectrotone low frequency: 65 Hz
+2025-05-10 22:03:28,094 - INFO - Instrument Keys spectrotone low frequency: 27 Hz
+2025-05-10 22:03:28,094 - INFO - Instrument Synth spectrotone low frequency: 55 Hz
+2025-05-10 22:03:28,094 - INFO - Melodic instruments sorted by frequency: ['Keys', 'Bass', 'Synth', 'Pads']
+2025-05-10 22:03:28,094 - INFO - Assigned channel 0 to Keys
+2025-05-10 22:03:28,094 - INFO - Assigned channel 1 to Bass
+2025-05-10 22:03:28,094 - INFO - Assigned channel 2 to Synth
+2025-05-10 22:03:28,095 - INFO - Assigned channel 3 to Pads
+2025-05-10 22:03:28,095 - INFO - Assigned standard channel 9 to Drums
+2025-05-10 22:03:28,095 - INFO - Final channel assignment map: {'Keys': 0, 'Bass': 1, 'Synth': 2, 'Pads': 3, 'Drums': 9}
+2025-05-10 22:03:28,095 - INFO - Key root MIDI note: 62
+2025-05-10 22:03:31,505 - INFO - Entering live MIDI mode
+2025-05-10 22:03:31,506 - INFO - Generating live grid...
+2025-05-10 22:03:31,506 - INFO - Generating live grid: 16 measures, 16 divisions
+2025-05-10 22:03:31,506 - INFO - Available instruments in template: ['Drums', 'Bass', 'Pads', 'Keys', 'Synth']
+2025-05-10 22:03:31,507 - INFO - Instrument precedence: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns', 'Horn Section', 'Vocals', 'Synth', 'Pads', 'FX']
+2025-05-10 22:03:31,507 - INFO - Initialized grid for Drums
+2025-05-10 22:03:31,507 - INFO - Initialized grid for Bass
+2025-05-10 22:03:31,507 - INFO - Initialized grid for Pads
+2025-05-10 22:03:31,507 - INFO - Initialized grid for Keys
+2025-05-10 22:03:31,508 - INFO - Initialized grid for Synth
+2025-05-10 22:03:31,508 - INFO - Processing Drums
+2025-05-10 22:03:31,508 - INFO - Drums configuration: zone=[0,16], density=0.8, pattern=euclidean
+2025-05-10 22:03:31,508 - INFO - Processing Bass
+2025-05-10 22:03:31,508 - INFO - Bass configuration: zone=[4,12], density=0.65, pattern=probability
+2025-05-10 22:03:31,509 - INFO - Skipping Guitar - not in template
+2025-05-10 22:03:31,509 - INFO - Processing Keys
+2025-05-10 22:03:31,509 - INFO - Keys configuration: zone=[0,8], density=0.55, pattern=probability
+2025-05-10 22:03:31,509 - INFO - Skipping Horns - not in template
+2025-05-10 22:03:31,510 - INFO - Skipping Horn Section - not in template
+2025-05-10 22:03:31,510 - INFO - Skipping Vocals - not in template
+2025-05-10 22:03:31,510 - INFO - Processing Synth
+2025-05-10 22:03:31,510 - INFO - Synth configuration: zone=[0,16], density=0.5, pattern=probability
+2025-05-10 22:03:31,510 - INFO - Processing Pads
+2025-05-10 22:03:31,511 - INFO - Pads configuration: zone=[0,16], density=0.3, pattern=probability
+2025-05-10 22:03:31,511 - INFO - Skipping FX - not in template
+2025-05-10 22:03:31,511 - INFO - Drums hit density: 192/256 (75.0%)
+2025-05-10 22:03:31,511 - INFO - Bass hit density: 21/256 (8.2%)
+2025-05-10 22:03:31,512 - INFO - Pads hit density: 4/256 (1.6%)
+2025-05-10 22:03:31,512 - INFO - Keys hit density: 16/256 (6.2%)
+2025-05-10 22:03:31,512 - INFO - Synth hit density: 9/256 (3.5%)
+2025-05-10 22:03:31,512 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 21, 'Pads': 4, 'Keys': 16, 'Synth': 9}
+2025-05-10 22:03:31,513 - INFO - Starting live MIDI playback...
+2025-05-10 22:03:31,513 - INFO - MIDO library loaded successfully
+2025-05-10 22:03:31,578 - INFO - Available MIDI output ports: ['Microsoft GS Wavetable Synth 0', 'DESKTOP-GE5VPTU 1']
+2025-05-10 22:03:48,408 - INFO - User selected MIDI output port: DESKTOP-GE5VPTU 1
+2025-05-10 22:03:48,410 - INFO - Grid configuration: 16 measures, 16 divisions per measure
+2025-05-10 22:03:48,411 - INFO - Timing: Beat = 0.496s, 16th = 0.124s
+2025-05-10 22:03:48,411 - INFO - Channel mapping: {'Keys': 0, 'Bass': 1, 'Synth': 2, 'Pads': 3, 'Drums': 9}
+2025-05-10 22:03:48,411 - INFO - Playing measure 1/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 22:03:48,412 - INFO - Drum hit: kick (note 36) at measure 1, division 1, channel 9
+2025-05-10 22:03:48,661 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 3, channel 9
+2025-05-10 22:03:48,785 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 4, channel 9
+2025-05-10 22:03:48,911 - INFO - Drum hit: kick (note 36) at measure 1, division 5, channel 9
+2025-05-10 22:03:49,036 - INFO - Keys hit (note 62) at measure 1, division 6, channel 0
+2025-05-10 22:03:49,161 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 7, channel 9
+2025-05-10 22:03:49,287 - INFO - Drum hit: open_hat (note 46) at measure 1, division 8, channel 9
+2025-05-10 22:03:49,413 - INFO - Drum hit: kick (note 36) at measure 1, division 9, channel 9
+2025-05-10 22:03:49,537 - INFO - Pads hit (note 62) at measure 1, division 10, channel 3
+2025-05-10 22:03:49,662 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 11, channel 9
+2025-05-10 22:03:49,787 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 12, channel 9
+2025-05-10 22:03:49,912 - INFO - Drum hit: kick (note 36) at measure 1, division 13, channel 9
+2025-05-10 22:03:50,036 - INFO - Keys hit (note 62) at measure 1, division 14, channel 0
+2025-05-10 22:03:50,160 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 15, channel 9
+2025-05-10 22:03:50,286 - INFO - Drum hit: open_hat (note 46) at measure 1, division 16, channel 9
+2025-05-10 22:03:50,412 - INFO - Playing measure 2/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 22:03:50,412 - INFO - Drum hit: kick (note 36) at measure 2, division 1, channel 9
+2025-05-10 22:03:50,537 - INFO - Keys hit (note 62) at measure 2, division 2, channel 0
+2025-05-10 22:03:50,663 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 3, channel 9
+2025-05-10 22:03:50,788 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 4, channel 9
+2025-05-10 22:03:50,914 - INFO - Drum hit: kick (note 36) at measure 2, division 5, channel 9
+2025-05-10 22:03:51,039 - INFO - Keys hit (note 62) at measure 2, division 6, channel 0
+2025-05-10 22:03:51,164 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 7, channel 9
+2025-05-10 22:03:51,289 - INFO - Drum hit: open_hat (note 46) at measure 2, division 8, channel 9
+2025-05-10 22:03:51,415 - INFO - Drum hit: kick (note 36) at measure 2, division 9, channel 9
+2025-05-10 22:03:51,540 - INFO - Keys hit (note 62) at measure 2, division 10, channel 0
+2025-05-10 22:03:51,664 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 11, channel 9
+2025-05-10 22:03:51,788 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 12, channel 9
+2025-05-10 22:03:51,914 - INFO - Drum hit: kick (note 36) at measure 2, division 13, channel 9
+2025-05-10 22:03:52,039 - INFO - Keys hit (note 62) at measure 2, division 14, channel 0
+2025-05-10 22:03:52,165 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 15, channel 9
+2025-05-10 22:03:52,290 - INFO - Drum hit: open_hat (note 46) at measure 2, division 16, channel 9
+2025-05-10 22:03:52,414 - INFO - Playing measure 3/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 22:03:52,415 - INFO - Drum hit: kick (note 36) at measure 3, division 1, channel 9
+2025-05-10 22:03:52,539 - INFO - Keys hit (note 62) at measure 3, division 2, channel 0
+2025-05-10 22:03:52,664 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 3, channel 9
+2025-05-10 22:03:52,788 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 4, channel 9
+2025-05-10 22:03:52,914 - INFO - Drum hit: kick (note 36) at measure 3, division 5, channel 9
+2025-05-10 22:03:53,039 - INFO - Keys hit (note 62) at measure 3, division 6, channel 0
+2025-05-10 22:03:53,165 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 7, channel 9
+2025-05-10 22:03:53,291 - INFO - Drum hit: open_hat (note 46) at measure 3, division 8, channel 9
+2025-05-10 22:03:53,416 - INFO - Drum hit: kick (note 36) at measure 3, division 9, channel 9
+2025-05-10 22:03:53,666 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 11, channel 9
+2025-05-10 22:03:53,791 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 12, channel 9
+2025-05-10 22:03:53,916 - INFO - Drum hit: kick (note 36) at measure 3, division 13, channel 9
+2025-05-10 22:03:54,041 - INFO - Keys hit (note 62) at measure 3, division 14, channel 0
+2025-05-10 22:03:54,166 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 15, channel 9
+2025-05-10 22:03:54,292 - INFO - Drum hit: open_hat (note 46) at measure 3, division 16, channel 9
+2025-05-10 22:03:54,418 - INFO - Playing measure 4/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 22:03:54,419 - INFO - Drum hit: kick (note 36) at measure 4, division 1, channel 9
+2025-05-10 22:03:54,667 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 3, channel 9
+2025-05-10 22:03:54,792 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 4, channel 9
+2025-05-10 22:03:54,917 - INFO - Drum hit: kick (note 36) at measure 4, division 5, channel 9
+2025-05-10 22:03:55,041 - INFO - Keys hit (note 62) at measure 4, division 6, channel 0
+2025-05-10 22:03:55,167 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 7, channel 9
+2025-05-10 22:03:55,292 - INFO - Drum hit: open_hat (note 46) at measure 4, division 8, channel 9
+2025-05-10 22:03:55,417 - INFO - Drum hit: kick (note 36) at measure 4, division 9, channel 9
+2025-05-10 22:03:55,542 - INFO - Keys hit (note 62) at measure 4, division 10, channel 0
+2025-05-10 22:03:55,667 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 11, channel 9
+2025-05-10 22:03:55,791 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 12, channel 9
+2025-05-10 22:03:55,916 - INFO - Drum hit: kick (note 36) at measure 4, division 13, channel 9
+2025-05-10 22:03:56,166 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 15, channel 9
+2025-05-10 22:03:56,291 - INFO - Drum hit: open_hat (note 46) at measure 4, division 16, channel 9
+2025-05-10 22:03:56,416 - INFO - Playing measure 5/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 22:03:56,416 - INFO - Drum hit: kick (note 36) at measure 5, division 1, channel 9
+2025-05-10 22:03:56,542 - INFO - Bass hit (note 62) at measure 5, division 2, channel 1
+2025-05-10 22:03:56,667 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 3, channel 9
+2025-05-10 22:03:56,793 - INFO - Drum hit: ghost_snare (note 36) at measure 5, division 4, channel 9
+2025-05-10 22:03:56,918 - INFO - Drum hit: kick (note 36) at measure 5, division 5, channel 9
+2025-05-10 22:03:57,043 - INFO - Bass hit (note 62) at measure 5, division 6, channel 1
+2025-05-10 22:03:57,167 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 7, channel 9
+2025-05-10 22:03:57,292 - INFO - Drum hit: open_hat (note 46) at measure 5, division 8, channel 9
+2025-05-10 22:03:57,416 - INFO - Drum hit: kick (note 36) at measure 5, division 9, channel 9
+2025-05-10 22:03:57,541 - INFO - Bass hit (note 62) at measure 5, division 10, channel 1
+2025-05-10 22:03:57,666 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 11, channel 9
+2025-05-10 22:03:57,791 - INFO - Drum hit: ghost_snare (note 36) at measure 5, division 12, channel 9
+2025-05-10 22:03:57,917 - INFO - Drum hit: kick (note 36) at measure 5, division 13, channel 9
+2025-05-10 22:03:58,042 - INFO - Bass hit (note 62) at measure 5, division 14, channel 1
+2025-05-10 22:03:58,166 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 15, channel 9
+2025-05-10 22:03:58,290 - INFO - Drum hit: open_hat (note 46) at measure 5, division 16, channel 9
+2025-05-10 22:03:58,414 - INFO - Playing measure 6/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 22:03:58,414 - INFO - Drum hit: kick (note 36) at measure 6, division 1, channel 9
+2025-05-10 22:03:58,540 - INFO - Bass hit (note 62) at measure 6, division 2, channel 1
+2025-05-10 22:03:58,665 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 3, channel 9
+2025-05-10 22:03:58,790 - INFO - Drum hit: ghost_snare (note 36) at measure 6, division 4, channel 9
+2025-05-10 22:03:58,915 - INFO - Drum hit: kick (note 36) at measure 6, division 5, channel 9
+2025-05-10 22:03:59,041 - INFO - Keys hit (note 62) at measure 6, division 6, channel 0
+2025-05-10 22:03:59,166 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 7, channel 9
+2025-05-10 22:03:59,290 - INFO - Drum hit: open_hat (note 46) at measure 6, division 8, channel 9
+2025-05-10 22:03:59,415 - INFO - Drum hit: kick (note 36) at measure 6, division 9, channel 9
+2025-05-10 22:03:59,539 - INFO - Bass hit (note 62) at measure 6, division 10, channel 1
+2025-05-10 22:03:59,663 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 11, channel 9
+2025-05-10 22:03:59,788 - INFO - Drum hit: ghost_snare (note 36) at measure 6, division 12, channel 9
+2025-05-10 22:03:59,911 - INFO - Playback interrupted by user
+2025-05-10 22:03:59,913 - INFO - Sent All Notes Off command.
+2025-05-10 22:03:59,913 - INFO - MIDI output port 'DESKTOP-GE5VPTU 1' closed.
+2025-05-10 22:05:07,213 - INFO - Starting MIDI Genre Generator
+2025-05-10 22:05:07,213 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 22:05:07,214 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 22:05:11,603 - INFO - Style selected: 60s–70s
+2025-05-10 22:05:13,300 - INFO - Substyle selected: Psychedelic Rock
+2025-05-10 22:05:19,234 - INFO - BPM selected: 131
+2025-05-10 22:05:19,235 - INFO - Prompting for instruments...
+2025-05-10 22:05:23,624 - INFO - Added instrument: Drums
+2025-05-10 22:05:26,589 - INFO - Added instrument: Bass
+2025-05-10 22:05:28,664 - INFO - Added instrument: Guitar
+2025-05-10 22:05:30,557 - INFO - Added instrument: Keys
+2025-05-10 22:05:33,043 - INFO - Added instrument: Vocals
+2025-05-10 22:05:33,043 - INFO - Selected instruments: Drums, Bass, Guitar, Keys, Vocals
+2025-05-10 22:05:36,033 - INFO - Key selected: F
+2025-05-10 22:05:38,952 - INFO - Mode selected: Aeolian
+2025-05-10 22:05:41,646 - INFO - Full key selected: F4
+2025-05-10 22:05:44,921 - INFO - Instrument Bass spectrotone low frequency: 41 Hz
+2025-05-10 22:05:44,921 - INFO - Instrument Guitar spectrotone low frequency: 82 Hz
+2025-05-10 22:05:44,922 - INFO - Instrument Keys spectrotone low frequency: 27 Hz
+2025-05-10 22:05:44,922 - INFO - Instrument Vocals spectrotone low frequency: 82 Hz
+2025-05-10 22:05:44,922 - INFO - Melodic instruments sorted by frequency: ['Keys', 'Bass', 'Guitar', 'Vocals']
+2025-05-10 22:05:44,923 - INFO - Assigned channel 0 to Keys
+2025-05-10 22:05:44,923 - INFO - Assigned channel 1 to Bass
+2025-05-10 22:05:44,923 - INFO - Assigned channel 2 to Guitar
+2025-05-10 22:05:44,923 - INFO - Assigned channel 3 to Vocals
+2025-05-10 22:05:44,923 - INFO - Assigned standard channel 9 to Drums
+2025-05-10 22:05:44,923 - INFO - Final channel assignment map: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Vocals': 3, 'Drums': 9}
+2025-05-10 22:05:44,924 - INFO - Key root MIDI note: 65
+2025-05-10 22:05:47,602 - INFO - Entering live MIDI mode
+2025-05-10 22:05:47,602 - INFO - Generating live grid...
+2025-05-10 22:05:47,602 - INFO - Generating live grid: 16 measures, 16 divisions
+2025-05-10 22:05:47,603 - INFO - Available instruments in template: ['Drums', 'Bass', 'Guitar', 'Keys', 'Vocals']
+2025-05-10 22:05:47,603 - INFO - Instrument precedence: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns', 'Horn Section', 'Vocals', 'Synth', 'Pads', 'FX']
+2025-05-10 22:05:47,603 - INFO - Initialized grid for Drums
+2025-05-10 22:05:47,603 - INFO - Initialized grid for Bass
+2025-05-10 22:05:47,604 - INFO - Initialized grid for Guitar
+2025-05-10 22:05:47,604 - INFO - Initialized grid for Keys
+2025-05-10 22:05:47,604 - INFO - Initialized grid for Vocals
+2025-05-10 22:05:47,604 - INFO - Processing Drums
+2025-05-10 22:05:47,604 - INFO - Drums configuration: zone=[0,16], density=0.8, pattern=euclidean
+2025-05-10 22:05:47,605 - INFO - Processing Bass
+2025-05-10 22:05:47,605 - INFO - Bass configuration: zone=[4,12], density=0.65, pattern=probability
+2025-05-10 22:05:47,605 - INFO - Processing Guitar
+2025-05-10 22:05:47,605 - INFO - Guitar configuration: zone=[8,16], density=0.5, pattern=euclidean
+2025-05-10 22:05:47,605 - INFO - Processing Keys
+2025-05-10 22:05:47,606 - INFO - Keys configuration: zone=[0,8], density=0.55, pattern=probability
+2025-05-10 22:05:47,606 - INFO - Skipping Horns - not in template
+2025-05-10 22:05:47,606 - INFO - Skipping Horn Section - not in template
+2025-05-10 22:05:47,606 - INFO - Processing Vocals
+2025-05-10 22:05:47,606 - INFO - Vocals configuration: zone=[4,12], density=0.4, pattern=probability
+2025-05-10 22:05:47,607 - INFO - Skipping Synth - not in template
+2025-05-10 22:05:47,607 - INFO - Skipping Pads - not in template
+2025-05-10 22:05:47,607 - INFO - Skipping FX - not in template
+2025-05-10 22:05:47,607 - INFO - Drums hit density: 192/256 (75.0%)
+2025-05-10 22:05:47,607 - INFO - Bass hit density: 22/256 (8.6%)
+2025-05-10 22:05:47,607 - INFO - Guitar hit density: 0/256 (0.0%)
+2025-05-10 22:05:47,608 - INFO - Keys hit density: 12/256 (4.7%)
+2025-05-10 22:05:47,608 - INFO - Vocals hit density: 3/256 (1.2%)
+2025-05-10 22:05:47,608 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 22, 'Guitar': 0, 'Keys': 12, 'Vocals': 3}
+2025-05-10 22:05:47,609 - INFO - Starting live MIDI playback...
+2025-05-10 22:05:47,609 - INFO - MIDO library loaded successfully
+2025-05-10 22:05:47,688 - INFO - Available MIDI output ports: ['Microsoft GS Wavetable Synth 0', 'DESKTOP-GE5VPTU 1', 'midi-port-in-1 2', 'midi-port-in-2 3', 'midi-port-in-3 4', 'midi-port-in-4 5', 'midi-port-out-1 6', 'midi-port-out-2 7', 'midi-port-out-3 8', 'midi-port-out-4 9']
+2025-05-10 22:06:09,396 - INFO - User selected MIDI output port: midi-port-out-1 6
+2025-05-10 22:06:09,400 - INFO - Grid configuration: 16 measures, 16 divisions per measure
+2025-05-10 22:06:09,400 - INFO - Timing: Beat = 0.458s, 16th = 0.115s
+2025-05-10 22:06:09,400 - INFO - Channel mapping: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Vocals': 3, 'Drums': 9}
+2025-05-10 22:06:09,401 - INFO - Playing measure 1/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:09,401 - INFO - Drum hit: kick (note 36) at measure 1, division 1, channel 9
+2025-05-10 22:06:09,518 - INFO - Keys hit (note 65) at measure 1, division 2, channel 0
+2025-05-10 22:06:09,634 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 3, channel 9
+2025-05-10 22:06:09,750 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 4, channel 9
+2025-05-10 22:06:09,866 - INFO - Drum hit: kick (note 36) at measure 1, division 5, channel 9
+2025-05-10 22:06:10,098 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 7, channel 9
+2025-05-10 22:06:10,213 - INFO - Drum hit: open_hat (note 46) at measure 1, division 8, channel 9
+2025-05-10 22:06:10,330 - INFO - Drum hit: kick (note 36) at measure 1, division 9, channel 9
+2025-05-10 22:06:10,446 - INFO - Keys hit (note 65) at measure 1, division 10, channel 0
+2025-05-10 22:06:10,562 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 11, channel 9
+2025-05-10 22:06:10,679 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 12, channel 9
+2025-05-10 22:06:10,795 - INFO - Drum hit: kick (note 36) at measure 1, division 13, channel 9
+2025-05-10 22:06:11,027 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 15, channel 9
+2025-05-10 22:06:11,143 - INFO - Drum hit: open_hat (note 46) at measure 1, division 16, channel 9
+2025-05-10 22:06:11,259 - INFO - Playing measure 2/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:11,260 - INFO - Drum hit: kick (note 36) at measure 2, division 1, channel 9
+2025-05-10 22:06:11,376 - INFO - Keys hit (note 65) at measure 2, division 2, channel 0
+2025-05-10 22:06:11,492 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 3, channel 9
+2025-05-10 22:06:11,608 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 4, channel 9
+2025-05-10 22:06:11,723 - INFO - Drum hit: kick (note 36) at measure 2, division 5, channel 9
+2025-05-10 22:06:11,839 - INFO - Keys hit (note 65) at measure 2, division 6, channel 0
+2025-05-10 22:06:11,954 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 7, channel 9
+2025-05-10 22:06:12,070 - INFO - Drum hit: open_hat (note 46) at measure 2, division 8, channel 9
+2025-05-10 22:06:12,185 - INFO - Drum hit: kick (note 36) at measure 2, division 9, channel 9
+2025-05-10 22:06:12,301 - INFO - Keys hit (note 65) at measure 2, division 10, channel 0
+2025-05-10 22:06:12,417 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 11, channel 9
+2025-05-10 22:06:12,532 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 12, channel 9
+2025-05-10 22:06:12,648 - INFO - Drum hit: kick (note 36) at measure 2, division 13, channel 9
+2025-05-10 22:06:12,763 - INFO - Keys hit (note 65) at measure 2, division 14, channel 0
+2025-05-10 22:06:12,879 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 15, channel 9
+2025-05-10 22:06:12,994 - INFO - Drum hit: open_hat (note 46) at measure 2, division 16, channel 9
+2025-05-10 22:06:13,110 - INFO - Playing measure 3/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:13,110 - INFO - Drum hit: kick (note 36) at measure 3, division 1, channel 9
+2025-05-10 22:06:13,226 - INFO - Keys hit (note 65) at measure 3, division 2, channel 0
+2025-05-10 22:06:13,341 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 3, channel 9
+2025-05-10 22:06:13,457 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 4, channel 9
+2025-05-10 22:06:13,572 - INFO - Drum hit: kick (note 36) at measure 3, division 5, channel 9
+2025-05-10 22:06:13,687 - INFO - Keys hit (note 65) at measure 3, division 6, channel 0
+2025-05-10 22:06:13,803 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 7, channel 9
+2025-05-10 22:06:13,918 - INFO - Drum hit: open_hat (note 46) at measure 3, division 8, channel 9
+2025-05-10 22:06:14,035 - INFO - Drum hit: kick (note 36) at measure 3, division 9, channel 9
+2025-05-10 22:06:14,265 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 11, channel 9
+2025-05-10 22:06:14,381 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 12, channel 9
+2025-05-10 22:06:14,497 - INFO - Drum hit: kick (note 36) at measure 3, division 13, channel 9
+2025-05-10 22:06:14,729 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 15, channel 9
+2025-05-10 22:06:14,844 - INFO - Drum hit: open_hat (note 46) at measure 3, division 16, channel 9
+2025-05-10 22:06:14,959 - INFO - Playing measure 4/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:14,959 - INFO - Drum hit: kick (note 36) at measure 4, division 1, channel 9
+2025-05-10 22:06:15,191 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 3, channel 9
+2025-05-10 22:06:15,307 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 4, channel 9
+2025-05-10 22:06:15,422 - INFO - Drum hit: kick (note 36) at measure 4, division 5, channel 9
+2025-05-10 22:06:15,653 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 7, channel 9
+2025-05-10 22:06:15,768 - INFO - Drum hit: open_hat (note 46) at measure 4, division 8, channel 9
+2025-05-10 22:06:15,883 - INFO - Drum hit: kick (note 36) at measure 4, division 9, channel 9
+2025-05-10 22:06:16,000 - INFO - Keys hit (note 65) at measure 4, division 10, channel 0
+2025-05-10 22:06:16,115 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 11, channel 9
+2025-05-10 22:06:16,230 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 12, channel 9
+2025-05-10 22:06:16,346 - INFO - Drum hit: kick (note 36) at measure 4, division 13, channel 9
+2025-05-10 22:06:16,577 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 15, channel 9
+2025-05-10 22:06:16,693 - INFO - Drum hit: open_hat (note 46) at measure 4, division 16, channel 9
+2025-05-10 22:06:16,809 - INFO - Playing measure 5/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:16,810 - INFO - Drum hit: kick (note 36) at measure 5, division 1, channel 9
+2025-05-10 22:06:17,041 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 3, channel 9
+2025-05-10 22:06:17,156 - INFO - Drum hit: ghost_snare (note 36) at measure 5, division 4, channel 9
+2025-05-10 22:06:17,271 - INFO - Drum hit: kick (note 36) at measure 5, division 5, channel 9
+2025-05-10 22:06:17,387 - INFO - Bass hit (note 65) at measure 5, division 6, channel 1
+2025-05-10 22:06:17,503 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 7, channel 9
+2025-05-10 22:06:17,619 - INFO - Drum hit: open_hat (note 46) at measure 5, division 8, channel 9
+2025-05-10 22:06:17,734 - INFO - Drum hit: kick (note 36) at measure 5, division 9, channel 9
+2025-05-10 22:06:17,849 - INFO - Bass hit (note 65) at measure 5, division 10, channel 1
+2025-05-10 22:06:17,965 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 11, channel 9
+2025-05-10 22:06:18,080 - INFO - Drum hit: ghost_snare (note 36) at measure 5, division 12, channel 9
+2025-05-10 22:06:18,196 - INFO - Drum hit: kick (note 36) at measure 5, division 13, channel 9
+2025-05-10 22:06:18,311 - INFO - Bass hit (note 65) at measure 5, division 14, channel 1
+2025-05-10 22:06:18,427 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 15, channel 9
+2025-05-10 22:06:18,543 - INFO - Drum hit: open_hat (note 46) at measure 5, division 16, channel 9
+2025-05-10 22:06:18,659 - INFO - Playing measure 6/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:18,659 - INFO - Drum hit: kick (note 36) at measure 6, division 1, channel 9
+2025-05-10 22:06:18,775 - INFO - Bass hit (note 65) at measure 6, division 2, channel 1
+2025-05-10 22:06:18,890 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 3, channel 9
+2025-05-10 22:06:19,006 - INFO - Drum hit: ghost_snare (note 36) at measure 6, division 4, channel 9
+2025-05-10 22:06:19,121 - INFO - Drum hit: kick (note 36) at measure 6, division 5, channel 9
+2025-05-10 22:06:19,238 - INFO - Bass hit (note 65) at measure 6, division 6, channel 1
+2025-05-10 22:06:19,354 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 7, channel 9
+2025-05-10 22:06:19,470 - INFO - Drum hit: open_hat (note 46) at measure 6, division 8, channel 9
+2025-05-10 22:06:19,587 - INFO - Drum hit: kick (note 36) at measure 6, division 9, channel 9
+2025-05-10 22:06:19,702 - INFO - Bass hit (note 65) at measure 6, division 10, channel 1
+2025-05-10 22:06:19,818 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 11, channel 9
+2025-05-10 22:06:19,933 - INFO - Drum hit: ghost_snare (note 36) at measure 6, division 12, channel 9
+2025-05-10 22:06:20,049 - INFO - Drum hit: kick (note 36) at measure 6, division 13, channel 9
+2025-05-10 22:06:20,166 - INFO - Bass hit (note 65) at measure 6, division 14, channel 1
+2025-05-10 22:06:20,281 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 15, channel 9
+2025-05-10 22:06:20,397 - INFO - Drum hit: open_hat (note 46) at measure 6, division 16, channel 9
+2025-05-10 22:06:20,513 - INFO - Playing measure 7/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:20,514 - INFO - Drum hit: kick (note 36) at measure 7, division 1, channel 9
+2025-05-10 22:06:20,630 - INFO - Bass hit (note 65) at measure 7, division 2, channel 1
+2025-05-10 22:06:20,745 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 3, channel 9
+2025-05-10 22:06:20,861 - INFO - Drum hit: ghost_snare (note 36) at measure 7, division 4, channel 9
+2025-05-10 22:06:20,976 - INFO - Drum hit: kick (note 36) at measure 7, division 5, channel 9
+2025-05-10 22:06:21,092 - INFO - Bass hit (note 65) at measure 7, division 6, channel 1
+2025-05-10 22:06:21,208 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 7, channel 9
+2025-05-10 22:06:21,323 - INFO - Drum hit: open_hat (note 46) at measure 7, division 8, channel 9
+2025-05-10 22:06:21,440 - INFO - Drum hit: kick (note 36) at measure 7, division 9, channel 9
+2025-05-10 22:06:21,555 - INFO - Keys hit (note 65) at measure 7, division 10, channel 0
+2025-05-10 22:06:21,670 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 11, channel 9
+2025-05-10 22:06:21,785 - INFO - Drum hit: ghost_snare (note 36) at measure 7, division 12, channel 9
+2025-05-10 22:06:21,902 - INFO - Drum hit: kick (note 36) at measure 7, division 13, channel 9
+2025-05-10 22:06:22,017 - INFO - Bass hit (note 65) at measure 7, division 14, channel 1
+2025-05-10 22:06:22,132 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 15, channel 9
+2025-05-10 22:06:22,248 - INFO - Drum hit: open_hat (note 46) at measure 7, division 16, channel 9
+2025-05-10 22:06:22,364 - INFO - Playing measure 8/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:22,365 - INFO - Drum hit: kick (note 36) at measure 8, division 1, channel 9
+2025-05-10 22:06:22,481 - INFO - Keys hit (note 65) at measure 8, division 2, channel 0
+2025-05-10 22:06:22,597 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 3, channel 9
+2025-05-10 22:06:22,712 - INFO - Drum hit: ghost_snare (note 36) at measure 8, division 4, channel 9
+2025-05-10 22:06:22,827 - INFO - Drum hit: kick (note 36) at measure 8, division 5, channel 9
+2025-05-10 22:06:22,944 - INFO - Bass hit (note 65) at measure 8, division 6, channel 1
+2025-05-10 22:06:23,060 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 7, channel 9
+2025-05-10 22:06:23,176 - INFO - Drum hit: open_hat (note 46) at measure 8, division 8, channel 9
+2025-05-10 22:06:23,292 - INFO - Drum hit: kick (note 36) at measure 8, division 9, channel 9
+2025-05-10 22:06:23,408 - INFO - Bass hit (note 65) at measure 8, division 10, channel 1
+2025-05-10 22:06:23,525 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 11, channel 9
+2025-05-10 22:06:23,641 - INFO - Drum hit: ghost_snare (note 36) at measure 8, division 12, channel 9
+2025-05-10 22:06:23,756 - INFO - Drum hit: kick (note 36) at measure 8, division 13, channel 9
+2025-05-10 22:06:23,873 - INFO - Keys hit (note 65) at measure 8, division 14, channel 0
+2025-05-10 22:06:23,990 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 15, channel 9
+2025-05-10 22:06:24,107 - INFO - Drum hit: open_hat (note 46) at measure 8, division 16, channel 9
+2025-05-10 22:06:24,223 - INFO - Playing measure 9/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:24,224 - INFO - Drum hit: kick (note 36) at measure 9, division 1, channel 9
+2025-05-10 22:06:24,339 - INFO - Bass hit (note 65) at measure 9, division 2, channel 1
+2025-05-10 22:06:24,455 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 3, channel 9
+2025-05-10 22:06:24,572 - INFO - Drum hit: ghost_snare (note 36) at measure 9, division 4, channel 9
+2025-05-10 22:06:24,688 - INFO - Drum hit: kick (note 36) at measure 9, division 5, channel 9
+2025-05-10 22:06:24,805 - INFO - Bass hit (note 65) at measure 9, division 6, channel 1
+2025-05-10 22:06:24,922 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 7, channel 9
+2025-05-10 22:06:25,038 - INFO - Drum hit: open_hat (note 46) at measure 9, division 8, channel 9
+2025-05-10 22:06:25,154 - INFO - Drum hit: kick (note 36) at measure 9, division 9, channel 9
+2025-05-10 22:06:25,386 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 11, channel 9
+2025-05-10 22:06:25,502 - INFO - Drum hit: ghost_snare (note 36) at measure 9, division 12, channel 9
+2025-05-10 22:06:25,618 - INFO - Drum hit: kick (note 36) at measure 9, division 13, channel 9
+2025-05-10 22:06:25,735 - INFO - Bass hit (note 65) at measure 9, division 14, channel 1
+2025-05-10 22:06:25,851 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 15, channel 9
+2025-05-10 22:06:25,968 - INFO - Drum hit: open_hat (note 46) at measure 9, division 16, channel 9
+2025-05-10 22:06:26,083 - INFO - Playing measure 10/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:26,083 - INFO - Drum hit: kick (note 36) at measure 10, division 1, channel 9
+2025-05-10 22:06:26,200 - INFO - Bass hit (note 65) at measure 10, division 2, channel 1
+2025-05-10 22:06:26,317 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 3, channel 9
+2025-05-10 22:06:26,433 - INFO - Drum hit: ghost_snare (note 36) at measure 10, division 4, channel 9
+2025-05-10 22:06:26,549 - INFO - Drum hit: kick (note 36) at measure 10, division 5, channel 9
+2025-05-10 22:06:26,665 - INFO - Bass hit (note 65) at measure 10, division 6, channel 1
+2025-05-10 22:06:26,782 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 7, channel 9
+2025-05-10 22:06:26,897 - INFO - Drum hit: open_hat (note 46) at measure 10, division 8, channel 9
+2025-05-10 22:06:27,013 - INFO - Drum hit: kick (note 36) at measure 10, division 9, channel 9
+2025-05-10 22:06:27,130 - INFO - Vocals hit (note 65) at measure 10, division 10, channel 3
+2025-05-10 22:06:27,245 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 11, channel 9
+2025-05-10 22:06:27,361 - INFO - Drum hit: ghost_snare (note 36) at measure 10, division 12, channel 9
+2025-05-10 22:06:27,478 - INFO - Drum hit: kick (note 36) at measure 10, division 13, channel 9
+2025-05-10 22:06:27,593 - INFO - Bass hit (note 65) at measure 10, division 14, channel 1
+2025-05-10 22:06:27,708 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 15, channel 9
+2025-05-10 22:06:27,824 - INFO - Drum hit: open_hat (note 46) at measure 10, division 16, channel 9
+2025-05-10 22:06:27,940 - INFO - Playing measure 11/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:27,941 - INFO - Drum hit: kick (note 36) at measure 11, division 1, channel 9
+2025-05-10 22:06:28,057 - INFO - Bass hit (note 65) at measure 11, division 2, channel 1
+2025-05-10 22:06:28,174 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 3, channel 9
+2025-05-10 22:06:28,289 - INFO - Drum hit: ghost_snare (note 36) at measure 11, division 4, channel 9
+2025-05-10 22:06:28,404 - INFO - Drum hit: kick (note 36) at measure 11, division 5, channel 9
+2025-05-10 22:06:28,520 - INFO - Vocals hit (note 65) at measure 11, division 6, channel 3
+2025-05-10 22:06:28,637 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 7, channel 9
+2025-05-10 22:06:28,753 - INFO - Drum hit: open_hat (note 46) at measure 11, division 8, channel 9
+2025-05-10 22:06:28,869 - INFO - Drum hit: kick (note 36) at measure 11, division 9, channel 9
+2025-05-10 22:06:28,984 - INFO - Bass hit (note 65) at measure 11, division 10, channel 1
+2025-05-10 22:06:29,100 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 11, channel 9
+2025-05-10 22:06:29,216 - INFO - Drum hit: ghost_snare (note 36) at measure 11, division 12, channel 9
+2025-05-10 22:06:29,334 - INFO - Drum hit: kick (note 36) at measure 11, division 13, channel 9
+2025-05-10 22:06:29,449 - INFO - Vocals hit (note 65) at measure 11, division 14, channel 3
+2025-05-10 22:06:29,565 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 15, channel 9
+2025-05-10 22:06:29,681 - INFO - Drum hit: open_hat (note 46) at measure 11, division 16, channel 9
+2025-05-10 22:06:29,798 - INFO - Playing measure 12/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:29,798 - INFO - Drum hit: kick (note 36) at measure 12, division 1, channel 9
+2025-05-10 22:06:29,914 - INFO - Bass hit (note 65) at measure 12, division 2, channel 1
+2025-05-10 22:06:30,029 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 3, channel 9
+2025-05-10 22:06:30,145 - INFO - Drum hit: ghost_snare (note 36) at measure 12, division 4, channel 9
+2025-05-10 22:06:30,261 - INFO - Drum hit: kick (note 36) at measure 12, division 5, channel 9
+2025-05-10 22:06:30,377 - INFO - Bass hit (note 65) at measure 12, division 6, channel 1
+2025-05-10 22:06:30,493 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 7, channel 9
+2025-05-10 22:06:30,608 - INFO - Drum hit: open_hat (note 46) at measure 12, division 8, channel 9
+2025-05-10 22:06:30,726 - INFO - Drum hit: kick (note 36) at measure 12, division 9, channel 9
+2025-05-10 22:06:30,957 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 11, channel 9
+2025-05-10 22:06:31,073 - INFO - Drum hit: ghost_snare (note 36) at measure 12, division 12, channel 9
+2025-05-10 22:06:31,190 - INFO - Drum hit: kick (note 36) at measure 12, division 13, channel 9
+2025-05-10 22:06:31,421 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 15, channel 9
+2025-05-10 22:06:31,536 - INFO - Drum hit: open_hat (note 46) at measure 12, division 16, channel 9
+2025-05-10 22:06:31,652 - INFO - Playing measure 13/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:31,652 - INFO - Drum hit: kick (note 36) at measure 13, division 1, channel 9
+2025-05-10 22:06:31,884 - INFO - Drum hit: closed_hat (note 42) at measure 13, division 3, channel 9
+2025-05-10 22:06:32,000 - INFO - Drum hit: ghost_snare (note 36) at measure 13, division 4, channel 9
+2025-05-10 22:06:32,115 - INFO - Drum hit: kick (note 36) at measure 13, division 5, channel 9
+2025-05-10 22:06:32,347 - INFO - Drum hit: closed_hat (note 42) at measure 13, division 7, channel 9
+2025-05-10 22:06:32,463 - INFO - Drum hit: open_hat (note 46) at measure 13, division 8, channel 9
+2025-05-10 22:06:32,578 - INFO - Drum hit: kick (note 36) at measure 13, division 9, channel 9
+2025-05-10 22:06:32,810 - INFO - Drum hit: closed_hat (note 42) at measure 13, division 11, channel 9
+2025-05-10 22:06:32,927 - INFO - Drum hit: ghost_snare (note 36) at measure 13, division 12, channel 9
+2025-05-10 22:06:33,042 - INFO - Drum hit: kick (note 36) at measure 13, division 13, channel 9
+2025-05-10 22:06:33,273 - INFO - Drum hit: closed_hat (note 42) at measure 13, division 15, channel 9
+2025-05-10 22:06:33,389 - INFO - Drum hit: open_hat (note 46) at measure 13, division 16, channel 9
+2025-05-10 22:06:33,505 - INFO - Playing measure 14/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:33,506 - INFO - Drum hit: kick (note 36) at measure 14, division 1, channel 9
+2025-05-10 22:06:33,736 - INFO - Drum hit: closed_hat (note 42) at measure 14, division 3, channel 9
+2025-05-10 22:06:33,853 - INFO - Drum hit: ghost_snare (note 36) at measure 14, division 4, channel 9
+2025-05-10 22:06:33,968 - INFO - Drum hit: kick (note 36) at measure 14, division 5, channel 9
+2025-05-10 22:06:34,199 - INFO - Drum hit: closed_hat (note 42) at measure 14, division 7, channel 9
+2025-05-10 22:06:34,316 - INFO - Drum hit: open_hat (note 46) at measure 14, division 8, channel 9
+2025-05-10 22:06:34,432 - INFO - Drum hit: kick (note 36) at measure 14, division 9, channel 9
+2025-05-10 22:06:34,663 - INFO - Drum hit: closed_hat (note 42) at measure 14, division 11, channel 9
+2025-05-10 22:06:34,778 - INFO - Drum hit: ghost_snare (note 36) at measure 14, division 12, channel 9
+2025-05-10 22:06:34,894 - INFO - Drum hit: kick (note 36) at measure 14, division 13, channel 9
+2025-05-10 22:06:35,126 - INFO - Drum hit: closed_hat (note 42) at measure 14, division 15, channel 9
+2025-05-10 22:06:35,242 - INFO - Drum hit: open_hat (note 46) at measure 14, division 16, channel 9
+2025-05-10 22:06:35,358 - INFO - Playing measure 15/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:35,358 - INFO - Drum hit: kick (note 36) at measure 15, division 1, channel 9
+2025-05-10 22:06:35,590 - INFO - Drum hit: closed_hat (note 42) at measure 15, division 3, channel 9
+2025-05-10 22:06:35,706 - INFO - Drum hit: ghost_snare (note 36) at measure 15, division 4, channel 9
+2025-05-10 22:06:35,823 - INFO - Drum hit: kick (note 36) at measure 15, division 5, channel 9
+2025-05-10 22:06:36,054 - INFO - Drum hit: closed_hat (note 42) at measure 15, division 7, channel 9
+2025-05-10 22:06:36,169 - INFO - Drum hit: open_hat (note 46) at measure 15, division 8, channel 9
+2025-05-10 22:06:36,284 - INFO - Drum hit: kick (note 36) at measure 15, division 9, channel 9
+2025-05-10 22:06:36,515 - INFO - Drum hit: closed_hat (note 42) at measure 15, division 11, channel 9
+2025-05-10 22:06:36,631 - INFO - Drum hit: ghost_snare (note 36) at measure 15, division 12, channel 9
+2025-05-10 22:06:36,747 - INFO - Drum hit: kick (note 36) at measure 15, division 13, channel 9
+2025-05-10 22:06:36,979 - INFO - Drum hit: closed_hat (note 42) at measure 15, division 15, channel 9
+2025-05-10 22:06:37,096 - INFO - Drum hit: open_hat (note 46) at measure 15, division 16, channel 9
+2025-05-10 22:06:37,211 - INFO - Playing measure 16/16 on port 'midi-port-out-1 6'
+2025-05-10 22:06:37,212 - INFO - Drum hit: kick (note 36) at measure 16, division 1, channel 9
+2025-05-10 22:06:37,443 - INFO - Drum hit: closed_hat (note 42) at measure 16, division 3, channel 9
+2025-05-10 22:06:37,559 - INFO - Drum hit: ghost_snare (note 36) at measure 16, division 4, channel 9
+2025-05-10 22:06:37,675 - INFO - Drum hit: kick (note 36) at measure 16, division 5, channel 9
+2025-05-10 22:06:37,905 - INFO - Drum hit: closed_hat (note 42) at measure 16, division 7, channel 9
+2025-05-10 22:06:38,022 - INFO - Drum hit: open_hat (note 46) at measure 16, division 8, channel 9
+2025-05-10 22:06:38,138 - INFO - Drum hit: kick (note 36) at measure 16, division 9, channel 9
+2025-05-10 22:06:38,370 - INFO - Drum hit: closed_hat (note 42) at measure 16, division 11, channel 9
+2025-05-10 22:06:38,486 - INFO - Drum hit: ghost_snare (note 36) at measure 16, division 12, channel 9
+2025-05-10 22:06:38,603 - INFO - Drum hit: kick (note 36) at measure 16, division 13, channel 9
+2025-05-10 22:06:38,835 - INFO - Drum hit: closed_hat (note 42) at measure 16, division 15, channel 9
+2025-05-10 22:06:38,951 - INFO - Drum hit: open_hat (note 46) at measure 16, division 16, channel 9
+2025-05-10 22:06:39,066 - INFO - Playback completed successfully
+2025-05-10 22:06:39,067 - INFO - MIDI output port 'midi-port-out-1 6' closed.
+2025-05-10 22:06:52,124 - INFO - Starting MIDI Genre Generator
+2025-05-10 22:06:52,125 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 22:06:52,125 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 22:06:56,216 - INFO - Style selected: Reggae
+2025-05-10 22:06:57,254 - INFO - Substyle selected: Roots Reggae
+2025-05-10 22:07:05,706 - INFO - BPM selected: 77
+2025-05-10 22:07:05,706 - INFO - Prompting for instruments...
+2025-05-10 22:07:08,058 - INFO - Added instrument: Drums
+2025-05-10 22:07:08,235 - INFO - Added instrument: Bass
+2025-05-10 22:07:08,409 - INFO - Added instrument: Guitar
+2025-05-10 22:07:09,246 - INFO - Added instrument: Keys
+2025-05-10 22:07:09,881 - INFO - Added instrument: Horns
+2025-05-10 22:07:09,881 - INFO - Selected instruments: Drums, Bass, Guitar, Keys, Horns
+2025-05-10 22:07:11,865 - INFO - Key selected: F#
+2025-05-10 22:07:13,876 - INFO - Mode selected: Phrygian
+2025-05-10 22:07:15,627 - INFO - Full key selected: F#4
+2025-05-10 22:07:17,114 - INFO - Instrument Bass spectrotone low frequency: 41 Hz
+2025-05-10 22:07:17,115 - INFO - Instrument Guitar spectrotone low frequency: 82 Hz
+2025-05-10 22:07:17,115 - INFO - Instrument Keys spectrotone low frequency: 27 Hz
+2025-05-10 22:07:17,115 - INFO - Instrument Horns spectrotone low frequency: 165 Hz
+2025-05-10 22:07:17,115 - INFO - Melodic instruments sorted by frequency: ['Keys', 'Bass', 'Guitar', 'Horns']
+2025-05-10 22:07:17,116 - INFO - Assigned channel 0 to Keys
+2025-05-10 22:07:17,116 - INFO - Assigned channel 1 to Bass
+2025-05-10 22:07:17,116 - INFO - Assigned channel 2 to Guitar
+2025-05-10 22:07:17,116 - INFO - Assigned channel 3 to Horns
+2025-05-10 22:07:17,116 - INFO - Assigned standard channel 9 to Drums
+2025-05-10 22:07:17,116 - INFO - Final channel assignment map: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Horns': 3, 'Drums': 9}
+2025-05-10 22:07:17,117 - INFO - Key root MIDI note: 66
+2025-05-10 22:07:18,734 - INFO - Entering live MIDI mode
+2025-05-10 22:07:18,734 - INFO - Generating live grid...
+2025-05-10 22:07:18,734 - INFO - Generating live grid: 16 measures, 16 divisions
+2025-05-10 22:07:18,735 - INFO - Available instruments in template: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns']
+2025-05-10 22:07:18,735 - INFO - Instrument precedence: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns', 'Horn Section', 'Vocals', 'Synth', 'Pads', 'FX']
+2025-05-10 22:07:18,735 - INFO - Initialized grid for Drums
+2025-05-10 22:07:18,735 - INFO - Initialized grid for Bass
+2025-05-10 22:07:18,735 - INFO - Initialized grid for Guitar
+2025-05-10 22:07:18,735 - INFO - Initialized grid for Keys
+2025-05-10 22:07:18,736 - INFO - Initialized grid for Horns
+2025-05-10 22:07:18,736 - INFO - Processing Drums
+2025-05-10 22:07:18,736 - INFO - Drums configuration: zone=[0,16], density=0.8, pattern=euclidean
+2025-05-10 22:07:18,736 - INFO - Processing Bass
+2025-05-10 22:07:18,736 - INFO - Bass configuration: zone=[4,12], density=0.65, pattern=probability
+2025-05-10 22:07:18,736 - INFO - Processing Guitar
+2025-05-10 22:07:18,737 - INFO - Guitar configuration: zone=[8,16], density=0.5, pattern=euclidean
+2025-05-10 22:07:18,737 - INFO - Processing Keys
+2025-05-10 22:07:18,737 - INFO - Keys configuration: zone=[0,8], density=0.55, pattern=probability
+2025-05-10 22:07:18,737 - INFO - Processing Horns
+2025-05-10 22:07:18,737 - INFO - Horns configuration: zone=[12,16], density=0.5, pattern=euclidean
+2025-05-10 22:07:18,737 - INFO - Skipping Horn Section - not in template
+2025-05-10 22:07:18,737 - INFO - Skipping Vocals - not in template
+2025-05-10 22:07:18,738 - INFO - Skipping Synth - not in template
+2025-05-10 22:07:18,738 - INFO - Skipping Pads - not in template
+2025-05-10 22:07:18,738 - INFO - Skipping FX - not in template
+2025-05-10 22:07:18,738 - INFO - Drums hit density: 192/256 (75.0%)
+2025-05-10 22:07:18,738 - INFO - Bass hit density: 20/256 (7.8%)
+2025-05-10 22:07:18,738 - INFO - Guitar hit density: 0/256 (0.0%)
+2025-05-10 22:07:18,738 - INFO - Keys hit density: 16/256 (6.2%)
+2025-05-10 22:07:18,739 - INFO - Horns hit density: 0/256 (0.0%)
+2025-05-10 22:07:18,739 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 20, 'Guitar': 0, 'Keys': 16, 'Horns': 0}
+2025-05-10 22:07:18,739 - INFO - Starting live MIDI playback...
+2025-05-10 22:07:18,740 - INFO - MIDO library loaded successfully
+2025-05-10 22:07:18,818 - INFO - Available MIDI output ports: ['Microsoft GS Wavetable Synth 0', 'DESKTOP-GE5VPTU 1', 'midi-port-in-1 2', 'midi-port-in-2 3', 'midi-port-in-3 4', 'midi-port-in-4 5', 'midi-port-out-1 6', 'midi-port-out-2 7', 'midi-port-out-3 8', 'midi-port-out-4 9']
+2025-05-10 22:07:34,605 - INFO - User selected MIDI output port: midi-port-in-1 2
+2025-05-10 22:07:34,608 - INFO - Grid configuration: 16 measures, 16 divisions per measure
+2025-05-10 22:07:34,608 - INFO - Timing: Beat = 0.779s, 16th = 0.195s
+2025-05-10 22:07:34,608 - INFO - Channel mapping: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Horns': 3, 'Drums': 9}
+2025-05-10 22:07:34,609 - INFO - Playing measure 1/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:34,609 - INFO - Drum hit: kick (note 36) at measure 1, division 1, channel 9
+2025-05-10 22:07:34,804 - INFO - Keys hit (note 66) at measure 1, division 2, channel 0
+2025-05-10 22:07:35,000 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 3, channel 9
+2025-05-10 22:07:35,196 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 4, channel 9
+2025-05-10 22:07:35,391 - INFO - Drum hit: kick (note 36) at measure 1, division 5, channel 9
+2025-05-10 22:07:35,587 - INFO - Keys hit (note 66) at measure 1, division 6, channel 0
+2025-05-10 22:07:35,783 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 7, channel 9
+2025-05-10 22:07:35,978 - INFO - Drum hit: open_hat (note 46) at measure 1, division 8, channel 9
+2025-05-10 22:07:36,174 - INFO - Drum hit: kick (note 36) at measure 1, division 9, channel 9
+2025-05-10 22:07:36,369 - INFO - Keys hit (note 66) at measure 1, division 10, channel 0
+2025-05-10 22:07:36,565 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 11, channel 9
+2025-05-10 22:07:36,760 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 12, channel 9
+2025-05-10 22:07:36,955 - INFO - Drum hit: kick (note 36) at measure 1, division 13, channel 9
+2025-05-10 22:07:37,150 - INFO - Keys hit (note 66) at measure 1, division 14, channel 0
+2025-05-10 22:07:37,346 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 15, channel 9
+2025-05-10 22:07:37,542 - INFO - Drum hit: open_hat (note 46) at measure 1, division 16, channel 9
+2025-05-10 22:07:37,738 - INFO - Playing measure 2/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:37,738 - INFO - Drum hit: kick (note 36) at measure 2, division 1, channel 9
+2025-05-10 22:07:38,130 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 3, channel 9
+2025-05-10 22:07:38,325 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 4, channel 9
+2025-05-10 22:07:38,520 - INFO - Drum hit: kick (note 36) at measure 2, division 5, channel 9
+2025-05-10 22:07:38,716 - INFO - Keys hit (note 66) at measure 2, division 6, channel 0
+2025-05-10 22:07:38,911 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 7, channel 9
+2025-05-10 22:07:39,106 - INFO - Drum hit: open_hat (note 46) at measure 2, division 8, channel 9
+2025-05-10 22:07:39,301 - INFO - Drum hit: kick (note 36) at measure 2, division 9, channel 9
+2025-05-10 22:07:39,497 - INFO - Keys hit (note 66) at measure 2, division 10, channel 0
+2025-05-10 22:07:39,693 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 11, channel 9
+2025-05-10 22:07:39,888 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 12, channel 9
+2025-05-10 22:07:40,083 - INFO - Drum hit: kick (note 36) at measure 2, division 13, channel 9
+2025-05-10 22:07:40,278 - INFO - Keys hit (note 66) at measure 2, division 14, channel 0
+2025-05-10 22:07:40,473 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 15, channel 9
+2025-05-10 22:07:40,670 - INFO - Drum hit: open_hat (note 46) at measure 2, division 16, channel 9
+2025-05-10 22:07:40,865 - INFO - Playing measure 3/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:40,865 - INFO - Drum hit: kick (note 36) at measure 3, division 1, channel 9
+2025-05-10 22:07:41,061 - INFO - Keys hit (note 66) at measure 3, division 2, channel 0
+2025-05-10 22:07:41,256 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 3, channel 9
+2025-05-10 22:07:41,452 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 4, channel 9
+2025-05-10 22:07:41,647 - INFO - Drum hit: kick (note 36) at measure 3, division 5, channel 9
+2025-05-10 22:07:41,842 - INFO - Keys hit (note 66) at measure 3, division 6, channel 0
+2025-05-10 22:07:42,038 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 7, channel 9
+2025-05-10 22:07:42,233 - INFO - Drum hit: open_hat (note 46) at measure 3, division 8, channel 9
+2025-05-10 22:07:42,428 - INFO - Drum hit: kick (note 36) at measure 3, division 9, channel 9
+2025-05-10 22:07:42,820 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 11, channel 9
+2025-05-10 22:07:43,015 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 12, channel 9
+2025-05-10 22:07:43,211 - INFO - Drum hit: kick (note 36) at measure 3, division 13, channel 9
+2025-05-10 22:07:43,619 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 15, channel 9
+2025-05-10 22:07:43,815 - INFO - Drum hit: open_hat (note 46) at measure 3, division 16, channel 9
+2025-05-10 22:07:44,012 - INFO - Playing measure 4/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:44,012 - INFO - Drum hit: kick (note 36) at measure 4, division 1, channel 9
+2025-05-10 22:07:44,208 - INFO - Keys hit (note 66) at measure 4, division 2, channel 0
+2025-05-10 22:07:44,404 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 3, channel 9
+2025-05-10 22:07:44,600 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 4, channel 9
+2025-05-10 22:07:44,796 - INFO - Drum hit: kick (note 36) at measure 4, division 5, channel 9
+2025-05-10 22:07:44,992 - INFO - Keys hit (note 66) at measure 4, division 6, channel 0
+2025-05-10 22:07:45,189 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 7, channel 9
+2025-05-10 22:07:45,384 - INFO - Drum hit: open_hat (note 46) at measure 4, division 8, channel 9
+2025-05-10 22:07:45,580 - INFO - Drum hit: kick (note 36) at measure 4, division 9, channel 9
+2025-05-10 22:07:45,971 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 11, channel 9
+2025-05-10 22:07:46,166 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 12, channel 9
+2025-05-10 22:07:46,362 - INFO - Drum hit: kick (note 36) at measure 4, division 13, channel 9
+2025-05-10 22:07:46,557 - INFO - Keys hit (note 66) at measure 4, division 14, channel 0
+2025-05-10 22:07:46,754 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 15, channel 9
+2025-05-10 22:07:46,950 - INFO - Drum hit: open_hat (note 46) at measure 4, division 16, channel 9
+2025-05-10 22:07:47,145 - INFO - Playing measure 5/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:47,145 - INFO - Drum hit: kick (note 36) at measure 5, division 1, channel 9
+2025-05-10 22:07:47,341 - INFO - Keys hit (note 66) at measure 5, division 2, channel 0
+2025-05-10 22:07:47,538 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 3, channel 9
+2025-05-10 22:07:47,734 - INFO - Drum hit: ghost_snare (note 36) at measure 5, division 4, channel 9
+2025-05-10 22:07:47,930 - INFO - Drum hit: kick (note 36) at measure 5, division 5, channel 9
+2025-05-10 22:07:48,126 - INFO - Keys hit (note 66) at measure 5, division 6, channel 0
+2025-05-10 22:07:48,322 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 7, channel 9
+2025-05-10 22:07:48,518 - INFO - Drum hit: open_hat (note 46) at measure 5, division 8, channel 9
+2025-05-10 22:07:48,714 - INFO - Drum hit: kick (note 36) at measure 5, division 9, channel 9
+2025-05-10 22:07:48,911 - INFO - Keys hit (note 66) at measure 5, division 10, channel 0
+2025-05-10 22:07:49,107 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 11, channel 9
+2025-05-10 22:07:49,303 - INFO - Drum hit: ghost_snare (note 36) at measure 5, division 12, channel 9
+2025-05-10 22:07:49,500 - INFO - Drum hit: kick (note 36) at measure 5, division 13, channel 9
+2025-05-10 22:07:49,890 - INFO - Drum hit: closed_hat (note 42) at measure 5, division 15, channel 9
+2025-05-10 22:07:50,086 - INFO - Drum hit: open_hat (note 46) at measure 5, division 16, channel 9
+2025-05-10 22:07:50,282 - INFO - Playing measure 6/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:50,283 - INFO - Drum hit: kick (note 36) at measure 6, division 1, channel 9
+2025-05-10 22:07:50,478 - INFO - Bass hit (note 66) at measure 6, division 2, channel 1
+2025-05-10 22:07:50,674 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 3, channel 9
+2025-05-10 22:07:50,869 - INFO - Drum hit: ghost_snare (note 36) at measure 6, division 4, channel 9
+2025-05-10 22:07:51,066 - INFO - Drum hit: kick (note 36) at measure 6, division 5, channel 9
+2025-05-10 22:07:51,457 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 7, channel 9
+2025-05-10 22:07:51,654 - INFO - Drum hit: open_hat (note 46) at measure 6, division 8, channel 9
+2025-05-10 22:07:51,850 - INFO - Drum hit: kick (note 36) at measure 6, division 9, channel 9
+2025-05-10 22:07:52,242 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 11, channel 9
+2025-05-10 22:07:52,437 - INFO - Drum hit: ghost_snare (note 36) at measure 6, division 12, channel 9
+2025-05-10 22:07:52,632 - INFO - Drum hit: kick (note 36) at measure 6, division 13, channel 9
+2025-05-10 22:07:53,024 - INFO - Drum hit: closed_hat (note 42) at measure 6, division 15, channel 9
+2025-05-10 22:07:53,219 - INFO - Drum hit: open_hat (note 46) at measure 6, division 16, channel 9
+2025-05-10 22:07:53,415 - INFO - Playing measure 7/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:53,416 - INFO - Drum hit: kick (note 36) at measure 7, division 1, channel 9
+2025-05-10 22:07:53,612 - INFO - Bass hit (note 66) at measure 7, division 2, channel 1
+2025-05-10 22:07:53,808 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 3, channel 9
+2025-05-10 22:07:54,003 - INFO - Drum hit: ghost_snare (note 36) at measure 7, division 4, channel 9
+2025-05-10 22:07:54,199 - INFO - Drum hit: kick (note 36) at measure 7, division 5, channel 9
+2025-05-10 22:07:54,396 - INFO - Bass hit (note 66) at measure 7, division 6, channel 1
+2025-05-10 22:07:54,592 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 7, channel 9
+2025-05-10 22:07:54,788 - INFO - Drum hit: open_hat (note 46) at measure 7, division 8, channel 9
+2025-05-10 22:07:54,984 - INFO - Drum hit: kick (note 36) at measure 7, division 9, channel 9
+2025-05-10 22:07:55,180 - INFO - Bass hit (note 66) at measure 7, division 10, channel 1
+2025-05-10 22:07:55,376 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 11, channel 9
+2025-05-10 22:07:55,571 - INFO - Drum hit: ghost_snare (note 36) at measure 7, division 12, channel 9
+2025-05-10 22:07:55,766 - INFO - Drum hit: kick (note 36) at measure 7, division 13, channel 9
+2025-05-10 22:07:55,963 - INFO - Bass hit (note 66) at measure 7, division 14, channel 1
+2025-05-10 22:07:56,159 - INFO - Drum hit: closed_hat (note 42) at measure 7, division 15, channel 9
+2025-05-10 22:07:56,356 - INFO - Drum hit: open_hat (note 46) at measure 7, division 16, channel 9
+2025-05-10 22:07:56,552 - INFO - Playing measure 8/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:56,552 - INFO - Drum hit: kick (note 36) at measure 8, division 1, channel 9
+2025-05-10 22:07:56,749 - INFO - Keys hit (note 66) at measure 8, division 2, channel 0
+2025-05-10 22:07:56,946 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 3, channel 9
+2025-05-10 22:07:57,141 - INFO - Drum hit: ghost_snare (note 36) at measure 8, division 4, channel 9
+2025-05-10 22:07:57,338 - INFO - Drum hit: kick (note 36) at measure 8, division 5, channel 9
+2025-05-10 22:07:57,534 - INFO - Bass hit (note 66) at measure 8, division 6, channel 1
+2025-05-10 22:07:57,730 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 7, channel 9
+2025-05-10 22:07:57,927 - INFO - Drum hit: open_hat (note 46) at measure 8, division 8, channel 9
+2025-05-10 22:07:58,122 - INFO - Drum hit: kick (note 36) at measure 8, division 9, channel 9
+2025-05-10 22:07:58,318 - INFO - Bass hit (note 66) at measure 8, division 10, channel 1
+2025-05-10 22:07:58,514 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 11, channel 9
+2025-05-10 22:07:58,711 - INFO - Drum hit: ghost_snare (note 36) at measure 8, division 12, channel 9
+2025-05-10 22:07:58,906 - INFO - Drum hit: kick (note 36) at measure 8, division 13, channel 9
+2025-05-10 22:07:59,102 - INFO - Bass hit (note 66) at measure 8, division 14, channel 1
+2025-05-10 22:07:59,298 - INFO - Drum hit: closed_hat (note 42) at measure 8, division 15, channel 9
+2025-05-10 22:07:59,494 - INFO - Drum hit: open_hat (note 46) at measure 8, division 16, channel 9
+2025-05-10 22:07:59,691 - INFO - Playing measure 9/16 on port 'midi-port-in-1 2'
+2025-05-10 22:07:59,692 - INFO - Drum hit: kick (note 36) at measure 9, division 1, channel 9
+2025-05-10 22:07:59,887 - INFO - Bass hit (note 66) at measure 9, division 2, channel 1
+2025-05-10 22:08:00,084 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 3, channel 9
+2025-05-10 22:08:00,281 - INFO - Drum hit: ghost_snare (note 36) at measure 9, division 4, channel 9
+2025-05-10 22:08:00,477 - INFO - Drum hit: kick (note 36) at measure 9, division 5, channel 9
+2025-05-10 22:08:00,869 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 7, channel 9
+2025-05-10 22:08:01,065 - INFO - Drum hit: open_hat (note 46) at measure 9, division 8, channel 9
+2025-05-10 22:08:01,262 - INFO - Drum hit: kick (note 36) at measure 9, division 9, channel 9
+2025-05-10 22:08:01,459 - INFO - Bass hit (note 66) at measure 9, division 10, channel 1
+2025-05-10 22:08:01,655 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 11, channel 9
+2025-05-10 22:08:01,850 - INFO - Drum hit: ghost_snare (note 36) at measure 9, division 12, channel 9
+2025-05-10 22:08:02,047 - INFO - Drum hit: kick (note 36) at measure 9, division 13, channel 9
+2025-05-10 22:08:02,439 - INFO - Drum hit: closed_hat (note 42) at measure 9, division 15, channel 9
+2025-05-10 22:08:02,634 - INFO - Drum hit: open_hat (note 46) at measure 9, division 16, channel 9
+2025-05-10 22:08:02,831 - INFO - Playing measure 10/16 on port 'midi-port-in-1 2'
+2025-05-10 22:08:02,831 - INFO - Drum hit: kick (note 36) at measure 10, division 1, channel 9
+2025-05-10 22:08:03,027 - INFO - Bass hit (note 66) at measure 10, division 2, channel 1
+2025-05-10 22:08:03,223 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 3, channel 9
+2025-05-10 22:08:03,420 - INFO - Drum hit: ghost_snare (note 36) at measure 10, division 4, channel 9
+2025-05-10 22:08:03,617 - INFO - Drum hit: kick (note 36) at measure 10, division 5, channel 9
+2025-05-10 22:08:03,813 - INFO - Bass hit (note 66) at measure 10, division 6, channel 1
+2025-05-10 22:08:04,009 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 7, channel 9
+2025-05-10 22:08:04,205 - INFO - Drum hit: open_hat (note 46) at measure 10, division 8, channel 9
+2025-05-10 22:08:04,401 - INFO - Drum hit: kick (note 36) at measure 10, division 9, channel 9
+2025-05-10 22:08:04,597 - INFO - Bass hit (note 66) at measure 10, division 10, channel 1
+2025-05-10 22:08:04,793 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 11, channel 9
+2025-05-10 22:08:04,989 - INFO - Drum hit: ghost_snare (note 36) at measure 10, division 12, channel 9
+2025-05-10 22:08:05,185 - INFO - Drum hit: kick (note 36) at measure 10, division 13, channel 9
+2025-05-10 22:08:05,381 - INFO - Bass hit (note 66) at measure 10, division 14, channel 1
+2025-05-10 22:08:05,577 - INFO - Drum hit: closed_hat (note 42) at measure 10, division 15, channel 9
+2025-05-10 22:08:05,773 - INFO - Drum hit: open_hat (note 46) at measure 10, division 16, channel 9
+2025-05-10 22:08:05,970 - INFO - Playing measure 11/16 on port 'midi-port-in-1 2'
+2025-05-10 22:08:05,970 - INFO - Drum hit: kick (note 36) at measure 11, division 1, channel 9
+2025-05-10 22:08:06,362 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 3, channel 9
+2025-05-10 22:08:06,558 - INFO - Drum hit: ghost_snare (note 36) at measure 11, division 4, channel 9
+2025-05-10 22:08:06,753 - INFO - Drum hit: kick (note 36) at measure 11, division 5, channel 9
+2025-05-10 22:08:07,144 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 7, channel 9
+2025-05-10 22:08:07,340 - INFO - Drum hit: open_hat (note 46) at measure 11, division 8, channel 9
+2025-05-10 22:08:07,535 - INFO - Drum hit: kick (note 36) at measure 11, division 9, channel 9
+2025-05-10 22:08:07,730 - INFO - Bass hit (note 66) at measure 11, division 10, channel 1
+2025-05-10 22:08:07,926 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 11, channel 9
+2025-05-10 22:08:08,135 - INFO - Drum hit: ghost_snare (note 36) at measure 11, division 12, channel 9
+2025-05-10 22:08:08,332 - INFO - Drum hit: kick (note 36) at measure 11, division 13, channel 9
+2025-05-10 22:08:08,528 - INFO - Bass hit (note 66) at measure 11, division 14, channel 1
+2025-05-10 22:08:08,724 - INFO - Drum hit: closed_hat (note 42) at measure 11, division 15, channel 9
+2025-05-10 22:08:08,919 - INFO - Drum hit: open_hat (note 46) at measure 11, division 16, channel 9
+2025-05-10 22:08:09,114 - INFO - Playing measure 12/16 on port 'midi-port-in-1 2'
+2025-05-10 22:08:09,114 - INFO - Drum hit: kick (note 36) at measure 12, division 1, channel 9
+2025-05-10 22:08:09,311 - INFO - Bass hit (note 66) at measure 12, division 2, channel 1
+2025-05-10 22:08:09,507 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 3, channel 9
+2025-05-10 22:08:09,703 - INFO - Drum hit: ghost_snare (note 36) at measure 12, division 4, channel 9
+2025-05-10 22:08:09,898 - INFO - Drum hit: kick (note 36) at measure 12, division 5, channel 9
+2025-05-10 22:08:10,094 - INFO - Bass hit (note 66) at measure 12, division 6, channel 1
+2025-05-10 22:08:10,290 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 7, channel 9
+2025-05-10 22:08:10,485 - INFO - Drum hit: open_hat (note 46) at measure 12, division 8, channel 9
+2025-05-10 22:08:10,681 - INFO - Drum hit: kick (note 36) at measure 12, division 9, channel 9
+2025-05-10 22:08:10,877 - INFO - Bass hit (note 66) at measure 12, division 10, channel 1
+2025-05-10 22:08:11,073 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 11, channel 9
+2025-05-10 22:08:11,269 - INFO - Drum hit: ghost_snare (note 36) at measure 12, division 12, channel 9
+2025-05-10 22:08:11,464 - INFO - Drum hit: kick (note 36) at measure 12, division 13, channel 9
+2025-05-10 22:08:11,659 - INFO - Bass hit (note 66) at measure 12, division 14, channel 1
+2025-05-10 22:08:11,855 - INFO - Drum hit: closed_hat (note 42) at measure 12, division 15, channel 9
+2025-05-10 22:08:12,051 - INFO - Drum hit: open_hat (note 46) at measure 12, division 16, channel 9
+2025-05-10 22:08:12,246 - INFO - Playing measure 13/16 on port 'midi-port-in-1 2'
+2025-05-10 22:08:12,247 - INFO - Drum hit: kick (note 36) at measure 13, division 1, channel 9
