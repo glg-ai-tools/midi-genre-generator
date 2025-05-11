@@ -75,15 +75,15 @@
         "randomization": {
             "density": {
                 "Drums": 0.8,
-                "Bass": 0.5,
-                "Guitar": 0.3,
-                "Keys": 0.4,
-                "Horns": 0.2,
-                "Horn Section": 0.2,
-                "Vocals": 0.15,
-                "Synth": 0.3,
-                "Pads": 0.1,
-                "FX": 0.05
+                "Bass": 0.65,
+                "Guitar": 0.5,
+                "Keys": 0.55,
+                "Horns": 0.5,
+                "Horn Section": 0.4,
+                "Vocals": 0.4,
+                "Synth": 0.5,
+                "Pads": 0.3,
+                "FX": 0.2
             },
             "pattern_types": {
                 "Drums": "euclidean",

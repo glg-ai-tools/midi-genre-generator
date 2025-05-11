@@ -39,31 +39,60 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
         logger.error("Mido library not found. Please install with: pip install mido")
         print("❌ Error: Mido library required for live MIDI output.")
         return False
-        
+
+    outport = None  # Initialize outport to None
     try:
-        # Find available MIDI outputs
         available_ports = mido.get_output_names()
+        logger.info(f"Available MIDI output ports: {available_ports}")
+
         if not available_ports:
-            logger.warning("No MIDI output ports available. Please connect a MIDI device.")
-            print("❌ Warning: No MIDI output ports found. Please check your MIDI device connections.")
-            print("ℹ️ Info: Will attempt to use a virtual port instead.")
-            try:
-                # Try to create a virtual port if no physical ports are available
-                outport = mido.open_output('MIDI Generator Virtual Port', virtual=True)
-                logger.info("Created virtual MIDI output port")
-                print("✅ Created virtual MIDI output port.")
-            except Exception as e:
-                logger.error(f"Failed to create virtual port: {e}")
-                print("❌ Error: Could not create virtual MIDI port. Check your MIDI setup.")
-                return False
+            logger.warning("No MIDI output ports available. Please connect a MIDI device or install a virtual MIDI port.")
+            print("❌ Warning: No MIDI output ports found.")
+            print("ℹ️ Info: You can install a virtual MIDI port like 'loopMIDI' if you don't have a physical device.")
+            return False
         else:
-            # Choose the first available port
-            port_name = available_ports[0]
-            logger.info(f"Found {len(available_ports)} MIDI output ports")
-            logger.info(f"Using MIDI output port: {port_name}")
-            print(f"✅ Using MIDI output port: {port_name}")
-            outport = mido.open_output(port_name)
-            
+            print("\nAvailable MIDI Output Ports:")
+            for i, port_name_option in enumerate(available_ports):
+                print(f"  {i + 1}) {port_name_option}")
+            print("  0) Cancel / Use Virtual Port (if available or fallback)")
+
+            while True:
+                try:
+                    choice = int(input("Choose a MIDI output port (number): ").strip())
+                    if 0 <= choice <= len(available_ports):
+                        break
+                    else:
+                        print(f"Please enter a number between 0 and {len(available_ports)}.")
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+
+            if choice == 0:
+                logger.info("User chose to cancel or attempt virtual port.")
+                print("ℹ️ Attempting to use a virtual port or fallback...")
+                try:
+                    outport = mido.open_output('MIDI Generator Virtual Port', virtual=True)
+                    logger.info("Created virtual MIDI output port: MIDI Generator Virtual Port")
+                    print("✅ Created virtual MIDI output port: MIDI Generator Virtual Port")
+                except Exception as e_virtual:
+                    logger.error(f"Failed to create virtual port: {e_virtual}")
+                    print(f"❌ Error: Could not create virtual MIDI port. {e_virtual}")
+                    return False
+            else:
+                port_name = available_ports[choice - 1]
+                logger.info(f"User selected MIDI output port: {port_name}")
+                print(f"✅ Using MIDI output port: {port_name}")
+                try:
+                    outport = mido.open_output(port_name)
+                except Exception as e_open: # Catch specific port opening errors
+                    logger.error(f"Failed to open selected port '{port_name}': {e_open}")
+                    print(f"❌ Error: Could not open port '{port_name}'. It might be in use or unavailable.")
+                    print(f"   Details: {e_open}")
+                    return False
+        
+        if outport is None: # Should not happen if logic is correct, but as a safeguard
+            logger.error("MIDI output port was not successfully opened or created.")
+            return False
+
         beat_time = 60.0 / tempo  # Time for one beat in seconds
         sixteenth_time = beat_time / 4.0  # Time for one 16th note
         
@@ -73,71 +102,74 @@ def send_live_midi(grid, tempo, key_root, channel_map, drum_pat):
         logger.info(f"Grid configuration: {measures} measures, {divisions} divisions per measure")
         logger.info(f"Timing: Beat = {beat_time:.3f}s, 16th = {sixteenth_time:.3f}s")
         logger.info(f"Channel mapping: {channel_map}")
-        print(f"ℹ️ Playing {measures} measures, tempo: {tempo} BPM")
+        print(f"ℹ️ Playing {measures} measures, tempo: {tempo} BPM on port '{outport.name}'")
         print("🎵 Starting MIDI playback...")
         
         try:
             # Play the grid
             for m in range(measures):
-                logger.info(f"Playing measure {m+1}/{measures}")
+                logger.info(f"Playing measure {m+1}/{measures} on port '{outport.name}'")
                 print(f"Measure {m+1}/{measures}", end="\r")
                 for t in range(divisions):
-                    messages = []
+                    messages_to_send = [] # Renamed to avoid conflict with mido.Message
                     
                     # Send note on for each instrument with a hit at this position
                     for inst, grid_data in grid.items():
                         if grid_data[m][t]:
                             channel = channel_map.get(inst, 0)
-                            note = key_root
+                            # Determine the note to play
+                            current_note_to_play = key_root # Default for melodic instruments
                             
-                            # Drums use specific note numbers
                             if inst == 'Drums':
-                                # Try to determine which drum part is playing
-                                beat_num = m * divisions + t + 1
-                                for role, beats in drum_pat.items():
-                                    if beat_num % 16 in beats or beat_num in beats:
-                                        note = GM_DRUM_MAP.get(role, 36)  # Default to kick if not found
-                                        logger.info(f"Drum hit: {role} (note {note}) at measure {m+1}, beat {t+1}")
-                                        messages.append(mido.Message('note_on', note=note, velocity=100, channel=channel))
-                            else:
-                                logger.info(f"{inst} hit (note {note}) at measure {m+1}, beat {t+1}, channel {channel}")
-                                messages.append(mido.Message('note_on', note=note, velocity=100, channel=channel))
+                                beat_num_in_bar = t + 1 # 1-indexed beat within the current measure (0-15 for 16 divisions)
+                                # Check against drum_pat which should have steps 1-16 for a bar
+                                for role, steps_in_pattern in drum_pat.items():
+                                    if beat_num_in_bar in steps_in_pattern:
+                                        current_note_to_play = GM_DRUM_MAP.get(role, 36)  # Default to kick if not found
+                                        logger.info(f"Drum hit: {role} (note {current_note_to_play}) at measure {m+1}, division {t+1}, channel {channel}")
+                                        messages_to_send.append(mido.Message('note_on', note=current_note_to_play, velocity=100, channel=channel))
+                                        break # Found a drum role for this step
+                            else: # Melodic instrument
+                                logger.info(f"{inst} hit (note {current_note_to_play}) at measure {m+1}, division {t+1}, channel {channel}")
+                                messages_to_send.append(mido.Message('note_on', note=current_note_to_play, velocity=100, channel=channel))
                     
                     # Send all note on messages
-                    for msg in messages:
-                        outport.send(msg)
+                    for msg_to_send in messages_to_send:
+                        outport.send(msg_to_send)
                     
                     # Wait for the 16th note duration
                     time.sleep(sixteenth_time)
                     
                     # Send note off for all active notes
-                    for msg in messages:
-                        if msg.type == 'note_on':
-                            outport.send(mido.Message('note_off', note=msg.note, velocity=0, channel=msg.channel))
+                    for msg_to_send in messages_to_send:
+                        if msg_to_send.type == 'note_on':
+                            outport.send(mido.Message('note_off', note=msg_to_send.note, velocity=0, channel=msg_to_send.channel))
                 
             logger.info("Playback completed successfully")
             print("\n✅ Playback completed!")
             
         except KeyboardInterrupt:
-            # Graceful shutdown if user presses Ctrl+C
             logger.info("Playback interrupted by user")
             print("\n⏹️ Playback stopped by user")
-            # Send all notes off on all channels to prevent stuck notes
-            for channel in range(16):
-                outport.send(mido.Message('control_change', control=123, value=0, channel=channel))
+            if outport and not outport.closed:
+                for ch in range(16): # Send all notes off to all channels
+                    outport.send(mido.Message('control_change', control=123, value=0, channel=ch)) # All Notes Off
+                logger.info("Sent All Notes Off command.")
                 
         finally:
-            # Always close the port properly
-            outport.close()
-            logger.info("MIDI output port closed")
+            if outport and not outport.closed:
+                outport.close()
+                logger.info(f"MIDI output port '{outport.name}' closed.")
             
         return True
             
     except Exception as e:
-        logger.error(f"Error during MIDI playback: {e}")
+        logger.error(f"Error during MIDI setup or playback: {e}")
         traceback.print_exc()
         print(f"❌ Error: {e}")
-        print("💡 Tip: Try installing 'python-rtmidi' with: pip install python-rtmidi")
+        # The tip about installing python-rtmidi might still be relevant if mido.get_output_names() fails
+        if "rtmidi" in str(e).lower():
+             print("💡 Tip: Ensure 'python-rtmidi' is installed: pip install python-rtmidi")
         return False
 
 # Rest of your CLI functions

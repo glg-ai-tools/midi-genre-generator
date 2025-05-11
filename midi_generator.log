@@ -84,3 +84,196 @@
 2025-05-10 21:21:46,624 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 16, 'Guitar': 0, 'Keys': 11, 'Horns': 0}
 2025-05-10 21:21:46,624 - INFO - Starting live MIDI playback...
 2025-05-10 21:21:46,645 - ERROR - Error in live mode: No module named 'rtmidi'
+2025-05-10 21:44:39,502 - INFO - Starting MIDI Genre Generator
+2025-05-10 21:44:39,502 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 21:44:39,503 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 21:50:39,091 - INFO - Starting MIDI Genre Generator
+2025-05-10 21:50:39,092 - INFO - Loading configuration from: C:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 21:50:39,093 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 21:50:46,950 - INFO - Style selected: Reggae
+2025-05-10 21:50:48,113 - INFO - Substyle selected: Roots Reggae
+2025-05-10 21:50:51,551 - INFO - BPM selected: 61
+2025-05-10 21:50:51,551 - INFO - Prompting for instruments...
+2025-05-10 21:50:55,580 - INFO - Added instrument: Drums
+2025-05-10 21:50:58,108 - INFO - Added instrument: Bass
+2025-05-10 21:50:58,476 - INFO - Added instrument: Guitar
+2025-05-10 21:50:58,893 - INFO - Added instrument: Keys
+2025-05-10 21:50:59,474 - INFO - Added instrument: Horns
+2025-05-10 21:50:59,474 - INFO - Selected instruments: Drums, Bass, Guitar, Keys, Horns
+2025-05-10 21:51:01,536 - INFO - Key selected: B
+2025-05-10 21:51:04,793 - INFO - Mode selected: Phrygian
+2025-05-10 21:51:07,590 - INFO - Full key selected: B2
+2025-05-10 21:51:11,787 - INFO - Instrument Bass spectrotone low frequency: 41 Hz
+2025-05-10 21:51:11,788 - INFO - Instrument Guitar spectrotone low frequency: 82 Hz
+2025-05-10 21:51:11,788 - INFO - Instrument Keys spectrotone low frequency: 27 Hz
+2025-05-10 21:51:11,788 - INFO - Instrument Horns spectrotone low frequency: 165 Hz
+2025-05-10 21:51:11,788 - INFO - Melodic instruments sorted by frequency: ['Keys', 'Bass', 'Guitar', 'Horns']
+2025-05-10 21:51:11,788 - INFO - Assigned channel 0 to Keys
+2025-05-10 21:51:11,788 - INFO - Assigned channel 1 to Bass
+2025-05-10 21:51:11,789 - INFO - Assigned channel 2 to Guitar
+2025-05-10 21:51:11,789 - INFO - Assigned channel 3 to Horns
+2025-05-10 21:51:11,789 - INFO - Assigned standard channel 9 to Drums
+2025-05-10 21:51:11,789 - INFO - Final channel assignment map: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Horns': 3, 'Drums': 9}
+2025-05-10 21:51:11,789 - INFO - Key root MIDI note: 47
+2025-05-10 21:51:27,491 - INFO - Entering live MIDI mode
+2025-05-10 21:51:27,491 - INFO - Generating live grid...
+2025-05-10 21:51:27,491 - INFO - Generating live grid: 16 measures, 16 divisions
+2025-05-10 21:51:27,491 - INFO - Available instruments in template: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns']
+2025-05-10 21:51:27,491 - INFO - Instrument precedence: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns', 'Horn Section', 'Vocals', 'Synth', 'Pads', 'FX']
+2025-05-10 21:51:27,492 - INFO - Initialized grid for Drums
+2025-05-10 21:51:27,492 - INFO - Initialized grid for Bass
+2025-05-10 21:51:27,492 - INFO - Initialized grid for Guitar
+2025-05-10 21:51:27,492 - INFO - Initialized grid for Keys
+2025-05-10 21:51:27,493 - INFO - Initialized grid for Horns
+2025-05-10 21:51:27,493 - INFO - Processing Drums
+2025-05-10 21:51:27,493 - INFO - Drums configuration: zone=[0,16], density=0.8, pattern=euclidean
+2025-05-10 21:51:27,493 - INFO - Processing Bass
+2025-05-10 21:51:27,493 - INFO - Bass configuration: zone=[4,12], density=0.5, pattern=probability
+2025-05-10 21:51:27,494 - INFO - Processing Guitar
+2025-05-10 21:51:27,494 - INFO - Guitar configuration: zone=[8,16], density=0.3, pattern=euclidean
+2025-05-10 21:51:27,494 - INFO - Processing Keys
+2025-05-10 21:51:27,494 - INFO - Keys configuration: zone=[0,8], density=0.4, pattern=probability
+2025-05-10 21:51:27,494 - INFO - Processing Horns
+2025-05-10 21:51:27,495 - INFO - Horns configuration: zone=[12,16], density=0.2, pattern=euclidean
+2025-05-10 21:51:27,495 - INFO - Skipping Horn Section - not in template
+2025-05-10 21:51:27,495 - INFO - Skipping Vocals - not in template
+2025-05-10 21:51:27,495 - INFO - Skipping Synth - not in template
+2025-05-10 21:51:27,495 - INFO - Skipping Pads - not in template
+2025-05-10 21:51:27,495 - INFO - Skipping FX - not in template
+2025-05-10 21:51:27,496 - INFO - Drums hit density: 192/256 (75.0%)
+2025-05-10 21:51:27,496 - INFO - Bass hit density: 15/256 (5.9%)
+2025-05-10 21:51:27,496 - INFO - Guitar hit density: 0/256 (0.0%)
+2025-05-10 21:51:27,496 - INFO - Keys hit density: 8/256 (3.1%)
+2025-05-10 21:51:27,496 - INFO - Horns hit density: 0/256 (0.0%)
+2025-05-10 21:51:27,496 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 15, 'Guitar': 0, 'Keys': 8, 'Horns': 0}
+2025-05-10 21:51:27,497 - INFO - Starting live MIDI playback...
+2025-05-10 21:51:27,497 - INFO - MIDO library loaded successfully
+2025-05-10 21:51:27,590 - INFO - Found 2 MIDI output ports
+2025-05-10 21:51:27,590 - INFO - Using MIDI output port: Microsoft GS Wavetable Synth 0
+2025-05-10 21:51:27,847 - ERROR - Error during MIDI playback: MidiOutWinMM::openPort: error creating Windows MM MIDI output port.
+2025-05-10 21:54:50,255 - INFO - Starting MIDI Genre Generator
+2025-05-10 21:54:50,255 - INFO - Loading configuration from: c:\Python\midi-genre-generator\src\..\config\style_workflow_config.json
+2025-05-10 21:54:50,256 - INFO - Configuration loaded successfully with 3 styles
+2025-05-10 21:54:55,238 - INFO - Style selected: Reggae
+2025-05-10 21:54:56,234 - INFO - Substyle selected: Roots Reggae
+2025-05-10 21:55:01,567 - INFO - BPM selected: 69
+2025-05-10 21:55:01,567 - INFO - Prompting for instruments...
+2025-05-10 21:55:04,477 - INFO - Added instrument: Drums
+2025-05-10 21:55:04,693 - INFO - Added instrument: Bass
+2025-05-10 21:55:05,526 - INFO - Added instrument: Guitar
+2025-05-10 21:55:06,108 - INFO - Added instrument: Keys
+2025-05-10 21:55:06,593 - INFO - Added instrument: Horns
+2025-05-10 21:55:06,594 - INFO - Selected instruments: Drums, Bass, Guitar, Keys, Horns
+2025-05-10 21:55:09,517 - INFO - Key selected: A
+2025-05-10 21:55:12,641 - INFO - Mode selected: Lydian
+2025-05-10 21:55:14,909 - INFO - Full key selected: A4
+2025-05-10 21:55:17,227 - INFO - Instrument Bass spectrotone low frequency: 41 Hz
+2025-05-10 21:55:17,228 - INFO - Instrument Guitar spectrotone low frequency: 82 Hz
+2025-05-10 21:55:17,228 - INFO - Instrument Keys spectrotone low frequency: 27 Hz
+2025-05-10 21:55:17,229 - INFO - Instrument Horns spectrotone low frequency: 165 Hz
+2025-05-10 21:55:17,229 - INFO - Melodic instruments sorted by frequency: ['Keys', 'Bass', 'Guitar', 'Horns']
+2025-05-10 21:55:17,229 - INFO - Assigned channel 0 to Keys
+2025-05-10 21:55:17,229 - INFO - Assigned channel 1 to Bass
+2025-05-10 21:55:17,230 - INFO - Assigned channel 2 to Guitar
+2025-05-10 21:55:17,230 - INFO - Assigned channel 3 to Horns
+2025-05-10 21:55:17,230 - INFO - Assigned standard channel 9 to Drums
+2025-05-10 21:55:17,230 - INFO - Final channel assignment map: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Horns': 3, 'Drums': 9}
+2025-05-10 21:55:17,230 - INFO - Key root MIDI note: 69
+2025-05-10 21:55:24,173 - INFO - Entering live MIDI mode
+2025-05-10 21:55:24,173 - INFO - Generating live grid...
+2025-05-10 21:55:24,173 - INFO - Generating live grid: 16 measures, 16 divisions
+2025-05-10 21:55:24,174 - INFO - Available instruments in template: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns']
+2025-05-10 21:55:24,174 - INFO - Instrument precedence: ['Drums', 'Bass', 'Guitar', 'Keys', 'Horns', 'Horn Section', 'Vocals', 'Synth', 'Pads', 'FX']
+2025-05-10 21:55:24,174 - INFO - Initialized grid for Drums
+2025-05-10 21:55:24,174 - INFO - Initialized grid for Bass
+2025-05-10 21:55:24,174 - INFO - Initialized grid for Guitar
+2025-05-10 21:55:24,175 - INFO - Initialized grid for Keys
+2025-05-10 21:55:24,175 - INFO - Initialized grid for Horns
+2025-05-10 21:55:24,175 - INFO - Processing Drums
+2025-05-10 21:55:24,175 - INFO - Drums configuration: zone=[0,16], density=0.8, pattern=euclidean
+2025-05-10 21:55:24,175 - INFO - Processing Bass
+2025-05-10 21:55:24,176 - INFO - Bass configuration: zone=[4,12], density=0.5, pattern=probability
+2025-05-10 21:55:24,176 - INFO - Processing Guitar
+2025-05-10 21:55:24,176 - INFO - Guitar configuration: zone=[8,16], density=0.3, pattern=euclidean
+2025-05-10 21:55:24,176 - INFO - Processing Keys
+2025-05-10 21:55:24,176 - INFO - Keys configuration: zone=[0,8], density=0.4, pattern=probability
+2025-05-10 21:55:24,177 - INFO - Processing Horns
+2025-05-10 21:55:24,177 - INFO - Horns configuration: zone=[12,16], density=0.2, pattern=euclidean
+2025-05-10 21:55:24,177 - INFO - Skipping Horn Section - not in template
+2025-05-10 21:55:24,177 - INFO - Skipping Vocals - not in template
+2025-05-10 21:55:24,177 - INFO - Skipping Synth - not in template
+2025-05-10 21:55:24,177 - INFO - Skipping Pads - not in template
+2025-05-10 21:55:24,177 - INFO - Skipping FX - not in template
+2025-05-10 21:55:24,177 - INFO - Drums hit density: 192/256 (75.0%)
+2025-05-10 21:55:24,179 - INFO - Bass hit density: 14/256 (5.5%)
+2025-05-10 21:55:24,179 - INFO - Guitar hit density: 0/256 (0.0%)
+2025-05-10 21:55:24,179 - INFO - Keys hit density: 10/256 (3.9%)
+2025-05-10 21:55:24,179 - INFO - Horns hit density: 0/256 (0.0%)
+2025-05-10 21:55:24,179 - INFO - Grid generation complete. Hit counts by instrument: {'Drums': 192, 'Bass': 14, 'Guitar': 0, 'Keys': 10, 'Horns': 0}
+2025-05-10 21:55:24,180 - INFO - Starting live MIDI playback...
+2025-05-10 21:55:24,181 - INFO - MIDO library loaded successfully
+2025-05-10 21:55:24,249 - INFO - Available MIDI output ports: ['Microsoft GS Wavetable Synth 0', 'DESKTOP-GE5VPTU 1']
+2025-05-10 21:55:34,246 - INFO - User selected MIDI output port: DESKTOP-GE5VPTU 1
+2025-05-10 21:55:34,249 - INFO - Grid configuration: 16 measures, 16 divisions per measure
+2025-05-10 21:55:34,249 - INFO - Timing: Beat = 0.870s, 16th = 0.217s
+2025-05-10 21:55:34,250 - INFO - Channel mapping: {'Keys': 0, 'Bass': 1, 'Guitar': 2, 'Horns': 3, 'Drums': 9}
+2025-05-10 21:55:34,250 - INFO - Playing measure 1/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 21:55:34,251 - INFO - Drum hit: kick (note 36) at measure 1, division 1, channel 9
+2025-05-10 21:55:34,688 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 3, channel 9
+2025-05-10 21:55:34,907 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 4, channel 9
+2025-05-10 21:55:35,125 - INFO - Drum hit: kick (note 36) at measure 1, division 5, channel 9
+2025-05-10 21:55:35,562 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 7, channel 9
+2025-05-10 21:55:35,780 - INFO - Drum hit: open_hat (note 46) at measure 1, division 8, channel 9
+2025-05-10 21:55:35,999 - INFO - Drum hit: kick (note 36) at measure 1, division 9, channel 9
+2025-05-10 21:55:36,438 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 11, channel 9
+2025-05-10 21:55:36,657 - INFO - Drum hit: ghost_snare (note 36) at measure 1, division 12, channel 9
+2025-05-10 21:55:36,876 - INFO - Drum hit: kick (note 36) at measure 1, division 13, channel 9
+2025-05-10 21:55:37,095 - INFO - Keys hit (note 69) at measure 1, division 14, channel 0
+2025-05-10 21:55:37,313 - INFO - Drum hit: closed_hat (note 42) at measure 1, division 15, channel 9
+2025-05-10 21:55:37,532 - INFO - Drum hit: open_hat (note 46) at measure 1, division 16, channel 9
+2025-05-10 21:55:37,751 - INFO - Playing measure 2/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 21:55:37,751 - INFO - Drum hit: kick (note 36) at measure 2, division 1, channel 9
+2025-05-10 21:55:37,970 - INFO - Keys hit (note 69) at measure 2, division 2, channel 0
+2025-05-10 21:55:38,189 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 3, channel 9
+2025-05-10 21:55:38,407 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 4, channel 9
+2025-05-10 21:55:38,626 - INFO - Drum hit: kick (note 36) at measure 2, division 5, channel 9
+2025-05-10 21:55:39,064 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 7, channel 9
+2025-05-10 21:55:39,283 - INFO - Drum hit: open_hat (note 46) at measure 2, division 8, channel 9
+2025-05-10 21:55:39,502 - INFO - Drum hit: kick (note 36) at measure 2, division 9, channel 9
+2025-05-10 21:55:39,940 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 11, channel 9
+2025-05-10 21:55:40,159 - INFO - Drum hit: ghost_snare (note 36) at measure 2, division 12, channel 9
+2025-05-10 21:55:40,378 - INFO - Drum hit: kick (note 36) at measure 2, division 13, channel 9
+2025-05-10 21:55:40,597 - INFO - Keys hit (note 69) at measure 2, division 14, channel 0
+2025-05-10 21:55:40,816 - INFO - Drum hit: closed_hat (note 42) at measure 2, division 15, channel 9
+2025-05-10 21:55:41,036 - INFO - Drum hit: open_hat (note 46) at measure 2, division 16, channel 9
+2025-05-10 21:55:41,255 - INFO - Playing measure 3/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 21:55:41,255 - INFO - Drum hit: kick (note 36) at measure 3, division 1, channel 9
+2025-05-10 21:55:41,692 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 3, channel 9
+2025-05-10 21:55:41,911 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 4, channel 9
+2025-05-10 21:55:42,129 - INFO - Drum hit: kick (note 36) at measure 3, division 5, channel 9
+2025-05-10 21:55:42,565 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 7, channel 9
+2025-05-10 21:55:42,785 - INFO - Drum hit: open_hat (note 46) at measure 3, division 8, channel 9
+2025-05-10 21:55:43,003 - INFO - Drum hit: kick (note 36) at measure 3, division 9, channel 9
+2025-05-10 21:55:43,222 - INFO - Keys hit (note 69) at measure 3, division 10, channel 0
+2025-05-10 21:55:43,441 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 11, channel 9
+2025-05-10 21:55:43,661 - INFO - Drum hit: ghost_snare (note 36) at measure 3, division 12, channel 9
+2025-05-10 21:55:43,880 - INFO - Drum hit: kick (note 36) at measure 3, division 13, channel 9
+2025-05-10 21:55:44,099 - INFO - Keys hit (note 69) at measure 3, division 14, channel 0
+2025-05-10 21:55:44,317 - INFO - Drum hit: closed_hat (note 42) at measure 3, division 15, channel 9
+2025-05-10 21:55:44,536 - INFO - Drum hit: open_hat (note 46) at measure 3, division 16, channel 9
+2025-05-10 21:55:44,755 - INFO - Playing measure 4/16 on port 'DESKTOP-GE5VPTU 1'
+2025-05-10 21:55:44,755 - INFO - Drum hit: kick (note 36) at measure 4, division 1, channel 9
+2025-05-10 21:55:44,974 - INFO - Keys hit (note 69) at measure 4, division 2, channel 0
+2025-05-10 21:55:45,193 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 3, channel 9
+2025-05-10 21:55:45,412 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 4, channel 9
+2025-05-10 21:55:45,630 - INFO - Drum hit: kick (note 36) at measure 4, division 5, channel 9
+2025-05-10 21:55:46,067 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 7, channel 9
+2025-05-10 21:55:46,287 - INFO - Drum hit: open_hat (note 46) at measure 4, division 8, channel 9
+2025-05-10 21:55:46,505 - INFO - Drum hit: kick (note 36) at measure 4, division 9, channel 9
+2025-05-10 21:55:46,942 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 11, channel 9
+2025-05-10 21:55:47,161 - INFO - Drum hit: ghost_snare (note 36) at measure 4, division 12, channel 9
+2025-05-10 21:55:47,379 - INFO - Drum hit: kick (note 36) at measure 4, division 13, channel 9
+2025-05-10 21:55:47,816 - INFO - Drum hit: closed_hat (note 42) at measure 4, division 15, channel 9
+2025-05-10 21:55:47,925 - INFO - Playback interrupted by user
+2025-05-10 21:55:47,927 - INFO - Sent All Notes Off command.
+2025-05-10 21:55:47,928 - INFO - MIDI output port 'DESKTOP-GE5VPTU 1' closed.
