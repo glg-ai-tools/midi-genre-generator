@@ -45,6 +45,18 @@ def generate_live_grid(template, live_rules, key_root, mode, tempo, chosen_instr
         if item.get("instrument_id") in chosen_instrument_ids:
             instrument_setups[item["instrument_id"]] = item
 
+    # Fallback: if no detailed setup, use default global_fallback for each chosen instrument
+    if not instrument_setups and template.get("instruments"):
+        for inst_id in template.get("instruments"):
+            if inst_id in chosen_instrument_ids:
+                instrument_setups[inst_id] = {
+                    "instrument_id": inst_id,
+                    "style_density_modifier": 1.0,
+                    "density_interpretation": "global_fallback",
+                    "patterns": {}
+                }
+        logger.info("No substyle instrument_setup found; defaulting to global_fallback for instruments: " + ", ".join(instrument_setups.keys()))
+
     for inst_id in global_ordering:
         if inst_id not in chosen_instrument_ids or inst_id not in instrument_setups:
             if inst_id in chosen_instrument_ids:
